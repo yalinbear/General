@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>生活收藏總表</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:32px 20px 64px;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;
+background:#f6f5f2;color:#23262b;line-height:1.7}
+.wrap{max-width:1080px;margin:0 auto}
+header h1{margin:0 0 6px;font-size:28px;letter-spacing:.5px}
+header p{margin:0 0 22px;color:#6b7078;font-size:14px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.filters button{border:1px solid #d9d6cf;background:#fff;border-radius:999px;padding:6px 15px;font:inherit;font-size:13px;
+color:#4a4f57;cursor:pointer;transition:.15s}
+.filters button:hover{border-color:#9aa0a8}
+.filters button.on{background:#23262b;color:#fff;border-color:#23262b}
+.block{margin-bottom:38px}
+.block h2{display:flex;align-items:center;gap:10px;font-size:19px;margin:0 0 14px;padding-bottom:9px;
+border-bottom:2px solid var(--accent);color:var(--accent)}
+.ico{font-size:20px}
+.count{margin-left:auto;font-size:12px;font-weight:400;background:var(--accent);color:#fff;border-radius:999px;padding:2px 10px}
+.cards{display:flex;flex-direction:column;gap:14px}
+.card{background:#fff;border:1px solid #e6e3dd;border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;
+box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.chead{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.chead h3{margin:0;font-size:15.5px;flex:1;line-height:1.45}
+.status{font-size:11px;padding:3px 9px;border-radius:5px;white-space:nowrap;flex-shrink:0}
+.status.todo{background:#eef2f7;color:#4a6383}
+.status.warn{background:#fdf1e2;color:#a8631a}
+ul.sum{margin:0 0 13px;padding:0 0 0 15px;list-style:none}
+ul.sum li{position:relative;margin:0 0 5px;font-size:13.5px;color:#4c525a;line-height:1.72;text-wrap:pretty}
+ul.sum li::before{content:"";position:absolute;left:-13px;top:.72em;width:5px;height:5px;border-radius:50%;
+background:var(--accent);opacity:.45}
+.links{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:11px}
+.lk{font-size:12.5px;text-decoration:none;color:#3d6ea8;border:1px solid #dce3ec;background:#f6f9fd;
+border-radius:6px;padding:4px 10px;transition:.15s}
+.lk:hover{background:#eaf1fa;border-color:#b9cbe2}
+.lk.map{color:#1f7a4d;background:#f2faf5;border-color:#d3e9dd}
+.lk.map:hover{background:#e6f5ec;border-color:#a9d8be}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11px;color:#6b7078;background:#f1efea;border-radius:4px;padding:2px 8px}
+.date{margin-top:10px;font-size:11.5px;color:#9aa0a8}
+footer{margin-top:40px;font-size:12px;color:#9aa0a8;text-align:center}
+@media(max-width:640px){body{padding:20px 14px 48px}.links{gap:6px}ul.sum li{font-size:13px}}
+</style></head><body><div class="wrap">
+<header><h1>生活收藏總表</h1><p>共 20 筆 · 依類別分區</p></header>
+<div class="filters"><button class="on" data-f="all">全部</button><button data-f="旅遊景點">🗺️ 旅遊景點</button><button data-f="美食餐廳">🍽️ 美食餐廳</button><button data-f="學習知識">📚 學習知識</button><button data-f="其他">🔖 其他</button></div>
+
+  <section class="block" data-cat="旅遊景點" style="--accent:#2e7d64">
+    <h2><span class="ico">🗺️</span>旅遊景點<span class="count">7</span></h2>
+    <div class="cards">
+      <article class="card">
+        <div class="chead">
+          <h3>Club D Oasis 海雲台（溫泉＋汗蒸幕＋水上樂園）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>位於海雲台 LCT 大樓（X the SKY 觀景台旁），5樓售票。</li><li>Visit Busan Pass 可免費用溫泉+汗蒸幕4小時，加購水上樂園共6小時（水樂園營業至18:00）。</li><li>5樓溫泉更衣、6樓汗蒸幕（5種汗蒸房）、4樓水上樂園（漂漂河、無邊際泳池、人造浪）。</li><li>園內消費刷手環、離場結帳才開鞋櫃。</li><li>人造浪池需租救生衣8,000韓元+押金10,000韓元；</li><li>滑水道限身高120cm以上。</li><li>4歲以上不可進異性更衣室。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%ED%81%B4%EB%9F%BD%EB%94%94%EC%98%A4%EC%95%84%EC%8B%9C%EC%8A%A4%20%ED%95%B4%EC%9A%B4%EB%8C%80" target="_blank" rel="noopener">Club D Oasis  📍</a><a class="lk" href="https://www.facebook.com/share/p/18pwpAiA9a/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">海雲台</span><span class="tag">親子</span><span class="tag">溫泉</span><span class="tag">汗蒸幕</span><span class="tag">水上樂園</span><span class="tag">釜山PASS</span></div>
+        <div class="date">收錄 2026/8/2</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>釜山PASS 最強攻略（花時光旅行實驗室）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>Visit Busan Pass 完整攻略：18個景點＋20項美食＋7天6夜行程規劃。</li><li>PASS 分計時型（24/48小時，從首次使用起算）與計次型（BIG3＝1紫+2藍、BIG5＝2紫+3藍，首次使用起180天有效）；</li><li>實體卡可當交通卡但目前暫停販售，建議用手機版 APP 掃 QR code。</li><li>免費景點約40個、折扣店家逾百間。</li><li>重點景點與原價（PASS 免費）：海岸列車16,000₩、X The Sky 27,000₩（99樓世界最高星巴克）、Yacht Holic 遊艇日間30,000₩／夜間40,000₩（17:00後航次需另付5,000₩）、甘川洞韓服12,000₩、手翻書15,000₩、松島海上纜車22,000₩（水晶車廂）、松島龍宮雲橋1,000₩、釜山塔12,000₩、Skyline Luge 28,000₩、樂天世界47,000₩（穿制服打8折）、Running Man體驗館19,000₩、電影體驗博物館10,000₩、Spa Land 汗蒸幕免費4小時。</li><li>每個景點都有獨立詳細文章連結。</li></ul>
+        <div class="links"><a class="lk" href="https://whatime.space/visit-busan-pass/" target="_blank" rel="noopener">原始文章  ↗</a><a class="lk" href="https://www.visitbusanpass.com/attractions" target="_blank" rel="noopener">釜山PASS 官網景點查詢  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">釜山PASS</span><span class="tag">攻略</span><span class="tag">行程規劃</span><span class="tag">省錢</span><span class="tag">親子</span></div>
+        <div class="date">收錄 2026/8/4</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>釜山20+超人氣景點攻略（Mimi韓の旅遊指南）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>Top20 釜山景點清單，附 Google My Maps 景點地圖。</li><li>涵蓋：釜山樂天世界（機張郡侍郞裏348-67，奧西利亞站步行10分，成人47,000₩）、X the Sky（10:00-21:00）、海雲台藍線公園（青沙浦路116，09:30-18:00，海岸列車7,000₩／天空艙1-2人30,000₩，建議提前3~5天官網預約）、BIFF廣場（黑糖堅果餅）、札嘎其海鮮市場、光復路商店街、影島大橋（每週六14:00開合15分鐘）、樂天百貨空中庭園、釜山塔＆龍頭山公園（夜間投影煙火秀）、The Bay 101、新世界 Spa Land、甘川洞文化村（無地鐵站，需搭公車或計程車）、海雲台海水浴場、SEA LIFE水族館（親子／雨天備案，有虎鯊餵食秀）、迎月嶺＆海月亭（建議搭計程車上山約4,000₩）、東海龍宮寺、太宗台、五六島天空步道。</li><li>另附賞櫻景點：冬柏站櫻花路、南川洞櫻花路、慶和火車站＆余佐川櫻花道。</li><li>住宿建議依序南浦洞＞海雲台＞西面。</li></ul>
+        <div class="links"><a class="lk" href="https://mimigo.tw/busan-trips/" target="_blank" rel="noopener">原始文章  ↗</a><a class="lk" href="https://www.google.com/maps/d/u/1/embed?mid=1NJThrGraThHKax9NUl2ExS7qfvHRbyw" target="_blank" rel="noopener">釜山景點 Google 地圖  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">景點懶人包</span><span class="tag">地圖</span><span class="tag">親子</span><span class="tag">賞櫻</span><span class="tag">行程規劃</span></div>
+        <div class="date">收錄 2026/8/4</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>初訪釜山不可錯過的23個景點（蔡小妞依玲）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>六次釜山自由行經驗整理，依行政區分類方便排順路行程。</li><li>釜山鎮區：西面商圈（1、2號線交會，樂天百貨＋田浦咖啡街，作者最推薦住這區）。</li><li>中區、沙下區：釜山塔、南浦洞商圈、BIFF廣場、光復路、札嘎其市場、影島大橋、甘川洞文化村。</li><li>西區、影島區：松島海上纜車（全長1.62km、最高離地86m）、松島龍宮天空步道（約127m）、白淺灘文化村、太宗台（步道全程約2小時，可搭Danubi遊園列車）、Arte Museum 沉浸式展覽、Thrill on the Mug 海景咖啡＋653m高空滑索。</li><li>水營區：廣安里海灘（週末有無人機表演）、Millac The Market。</li><li>海雲台區：海雲台沙灘、X the SKY、Sea Life水族館、The Bay 101、膠囊列車、新世界百貨Spa Land、Museum 1媒體藝術館、青沙浦（釜山版灌籃高手平交道）。</li><li>機張郡：機張市場、海東龍宮寺、Skyline Luge、樂天世界。</li><li>膠囊列車建議早上搭海岸列車到松亭，傍晚從青沙浦搭膠囊列車回海雲台看晚霞。</li></ul>
+        <div class="links"><a class="lk" href="https://tsnio.com/busan-attractions/" target="_blank" rel="noopener">原始文章  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">景點懶人包</span><span class="tag">分區整理</span><span class="tag">膠囊列車</span><span class="tag">汗蒸幕</span><span class="tag">親子</span></div>
+        <div class="date">收錄 2026/8/4</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>2026釜山Pass：24/48小時、Big3/Big5怎麼選（波比看世界）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>釜山Pass 選擇與使用指南，免費暢遊超過30個熱門景點（樂天世界、汗蒸幕、海岸列車、松島纜車、遊艇、韓服體驗等）。</li><li>特別提醒：天空膠囊列車不包含在內。</li><li>內容含 24小時／48小時／Big3／Big5 比較、免費景點與折扣景點整理、實體卡與電子版的領取地點與使用方式，以及四種票券各自的行程規劃建議與11個熱門景點介紹（含釜山觀光旅遊巴士）。</li></ul>
+        <div class="links"><a class="lk" href="https://bobbytravel.tw/visit-busan-pass/" target="_blank" rel="noopener">原始文章  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">釜山PASS</span><span class="tag">票券比較</span><span class="tag">攻略</span><span class="tag">注意事項</span></div>
+        <div class="date">收錄 2026/8/4</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>Skyline Luge Busan 釜山斜坡滑車</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>釜山機張的斜坡滑車樂園，4 條賽道共 2.4 公里：Wind、Marine、Peak、Forest，彎道與隧道各有變化。</li><li>操作直覺，往後拉把手是煞車、放開是加速，第一次玩有工作人員教學。</li><li>上山搭空中纜車 Skyride，可俯瞰機張海岸與樂天世界城堡。</li><li>身高 85 公分以上就能玩，110 公分以下可由大人陪同共乘，適合全家一起。</li><li>地址：釜山廣域市機張郡機張邑機張海岸路205。</li><li>交通：地鐵東海線奧西利亞站（Osiria）1號出口，轉搭公車1001或181號至海東龍宮寺站，步行3分鐘。</li><li>營業時間平日 10:00–19:00、週末 10:00–20:00，最後入場為打烊前 30 分鐘。</li><li>高血壓、癲癇患者、孕婦及長輩不建議參與；</li><li>惡劣天氣可能暫時關閉。</li><li>旁邊就是釜山樂天世界，可安排順路行程，兩者釜山PASS都能用。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B6%80%EC%82%B0%20%EA%B8%B0%EC%9E%A5%EA%B5%B0%20%EA%B8%B0%EC%9E%A5%EC%9D%8D%20%EA%B8%B0%EC%9E%A5%ED%95%B4%EC%95%88%EB%A1%9C%20205" target="_blank" rel="noopener">Skyline Luge Busan  📍</a><a class="lk" href="https://www.facebook.com/share/p/1BqC9DLyNV/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">機張</span><span class="tag">斜坡滑車</span><span class="tag">親子</span><span class="tag">釜山PASS</span><span class="tag">戶外</span></div>
+        <div class="date">收錄 2026/8/11</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>甘川洞文化村兩個省力拍照點（旅行空間 Co-Traveling）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>甘川洞文化村不必走遍全村，作者推薦兩個重點拍照位。</li><li>小王子2.0觀景台（Google Map 名稱 New Little Prince Statue）位於健身館頂樓，空間寬敞相對安全，作者覺得比路邊那尊小王子更好拍。</li><li>前往小王子2.0的路上有小上坡，建議排第一站先去，體力還夠。</li><li>天頂展望台沒有小王子雕像，但是最省力又漂亮的觀景點。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=New%20Little%20Prince%20Statue%20%EA%B0%90%EC%B2%9C%EB%AC%B8%ED%99%94%EB%A7%88%EC%9D%84" target="_blank" rel="noopener">小王子2.0觀景台 New Little Prince Statue  📍</a><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B0%90%EC%B2%9C%EB%AC%B8%ED%99%94%EB%A7%88%EC%9D%84%20%ED%95%98%EB%8A%98%EB%A7%88%EB%A3%A8%20%EC%A0%84%EB%A7%9D%EB%8C%80" target="_blank" rel="noopener">甘川洞文化村 天頂展望台  📍</a><a class="lk" href="https://www.facebook.com/share/r/1EUExvRvpY/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">甘川洞</span><span class="tag">拍照點</span><span class="tag">省力路線</span><span class="tag">景點</span></div>
+        <div class="date">收錄 2026/8/11</div>
+      </article></div>
+  </section>
+  <section class="block" data-cat="美食餐廳" style="--accent:#b8562f">
+    <h2><span class="ico">🍽️</span>美食餐廳<span class="count">9</span></h2>
+    <div class="cards">
+      <article class="card">
+        <div class="chead">
+          <h3>古來思魚糕 海雲台店（고래사어묵）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>釜山海雲台地鐵站旁、超過60年歷史的魚糕老店。</li><li>高魚漿比例、不加防腐劑與麵粉，口味多且不辣的選擇多，適合親子。</li><li>門口巨型魚糕串模型是打卡點。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%EA%B3%A0%EB%9E%98%EC%82%AC%EC%96%B4%EB%AC%B5%20%ED%95%B4%EC%9A%B4%EB%8C%80%EC%A0%90" target="_blank" rel="noopener">古來思魚糕 海雲台店  📍</a><a class="lk" href="https://www.facebook.com/share/p/1JDuEdVsgz/" target="_blank" rel="noopener">原始貼文  ↗</a><a class="lk" href="https://bigmouthblog.tw/blog/post/goraesa" target="_blank" rel="noopener">心得文  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">海雲台</span><span class="tag">親子</span><span class="tag">魚糕</span><span class="tag">小吃</span></div>
+        <div class="date">收錄 2026/8/2</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>真味家烤韓排（갈비가맛있다）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>海雲台大街（龜南路）上的排隊烤肉店，韓國在地人與藝人也愛，牆上多簽名板。</li><li>地址 부산 해운대구 구남로 17-2，地鐵2號線海雲台站3號出口步行約2分鐘。</li><li>電話 0507-1321-3998，營業 11:00～隔日06:00。</li><li>共三層樓，桌上平板點餐有中文介面；</li><li>低消3份肉起，人少時有專人桌邊代烤、尖峰時段要自己烤。</li><li>推薦韓牛牛胸腹肉、調味牛肋條（厚切五花較普通）；</li><li>小菜可續加，離場前有免費三合一咖啡。</li><li>網友回報烤肉歐膩會說中文，會主動幫小孩把肉剪小塊。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B6%80%EC%82%B0%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC%20%EA%B5%AC%EB%82%A8%EB%A1%9C%2017-2%20%EA%B0%88%EB%B9%84%EA%B0%80%EB%A7%9B%EC%9E%88%EB%8B%A4" target="_blank" rel="noopener">真味家烤韓排  📍</a><a class="lk" href="https://www.facebook.com/share/p/1D1bia6uzU/" target="_blank" rel="noopener">原始貼文  ↗</a><a class="lk" href="https://feitravel.tw/p-5071617678/" target="_blank" rel="noopener">心得文（加小菲）  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">海雲台</span><span class="tag">烤肉</span><span class="tag">韓牛</span><span class="tag">親子友善</span><span class="tag">桌邊代烤</span></div>
+        <div class="date">收錄 2026/8/2</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>私嚐の吃飯（新竹咖哩飯）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>新竹高評價的日式咖哩飯專門店。</li><li>咖哩不死甜、香料味夠，吃起來順口不易膩。</li><li>推薦唐揚雞咖哩，可另外加點炸豬排；</li><li>炸物外酥內多汁，配咖哩很下飯。</li><li>蛤蜊烏龍麵的蛤蜊多到快蓋住麵，湯頭很鮮。</li><li>店內環境舒服、不趕人，適合慢慢吃慢慢聊。</li><li>是寵物友善餐廳，常看到客人帶狗狗來。</li><li>位置在新竹中正路過圓環第一條巷子右轉，美乃斯旁巷子進去、國稅局旁邊，附近好停車。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A7%81%E5%9A%90%E3%81%AE%E5%90%83%E9%A3%AF%20%E6%96%B0%E7%AB%B9%E5%B8%82%E4%B8%AD%E6%AD%A3%E8%B7%AF" target="_blank" rel="noopener">私嚐の吃飯  📍</a><a class="lk" href="https://www.facebook.com/share/p/19KzSWQ2Gd/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">新竹</span><span class="tag">咖哩</span><span class="tag">日式</span><span class="tag">寵物友善</span><span class="tag">口袋名單</span></div>
+        <div class="date">收錄 2026/8/8</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>Standard Bread 스탠다드 브레드（釜山海雲台法式吐司）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>釜山海雲台的複合式麵包咖啡店，整棟兩層樓、歐式鄉村造景，店內有小橋流水，好拍也好吃。</li><li>地址 571 Haeun-daero, Haeundae, Busan（해운대로 571），電話 070-4116-6169。</li><li>營業時間每日 09:00–21:00，Google 評分 4.9（2,145 則）。</li><li>招牌是手撕吐司，外表扎實內心柔軟，熔岩巧克力不過甜，麵包下方有加熱裝置所以餡料不會凝固。</li><li>焦糖烤布蕾法式吐司上層是焦糖脆殼、中間像布丁，視覺味覺都特別，但吃到後面偏甜膩。</li><li>鹽味吐司越嚼越香，中段鹽味較濃。</li><li>現場架上的麵包可直接拿，鑄鐵鍋吐司與飲料要到櫃檯點餐、現點現做需等候。</li><li>麵包定時出爐，常被搶購一空，想買要抓好時間。</li><li>台北也開了分店，但吃過兩邊的人覺得釜山的口感較好。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B6%80%EC%82%B0%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC%20%ED%95%B4%EC%9A%B4%EB%8C%80%EB%A1%9C%20571%20%EC%8A%A4%ED%83%A0%EB%8B%A4%EB%93%9C%20%EB%B8%8C%EB%A0%88%EB%93%9C" target="_blank" rel="noopener">Standard Bread 海雲台  📍</a><a class="lk" href="https://www.facebook.com/share/p/18Mdpjsh7H/" target="_blank" rel="noopener">原始貼文  ↗</a><a class="lk" href="https://dramavsfood.com/travel260805/" target="_blank" rel="noopener">心得文（熊貓追劇吃飯中）  ↗</a><a class="lk" href="https://www.instagram.com/standardbread_official/" target="_blank" rel="noopener">官方 Instagram  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">海雲台</span><span class="tag">麵包</span><span class="tag">法式吐司</span><span class="tag">咖啡廳</span><span class="tag">早午餐</span></div>
+        <div class="date">收錄 2026/8/10</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>韓國必吃的15樣美食清單（朱迪的韓遊圖鑑）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>第一次去韓國的美食清單，挑的是有代表性又旅途中容易吃到的15樣。</li><li>1 泡菜 김치、2 烤肉 불고기/숯불갈비、3 炸雞 치킨、4 石鍋拌飯 비빔밥、5 辣炒年糕 떡볶이。</li><li>6 紫菜包飯 김밥、7 部隊鍋 부대찌개、8 韓式冷麵 냉면、9 大醬湯 된장국、10 蔘雞湯 삼계탕。</li><li>11 馬鈴薯排骨湯 감자탕、12 炒雜菜 잡채、13 米腸 순대、14 韓式魚餅 어묵、15 韓式煎餅 파전。</li><li>作者提醒行程比胃還難排，別只吃烤肉加泡菜，可照清單分配每餐。</li></ul>
+        <div class="links"><a class="lk" href="https://www.facebook.com/share/1KPPXgYW1X/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">韓國</span><span class="tag">美食清單</span><span class="tag">必吃</span><span class="tag">行程規劃</span></div>
+        <div class="date">收錄 2026/8/11</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>泉布苑鍋物 三民店（竹北火鍋）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>竹北市場旁的火鍋店，特色湯底是客家湯圓鍋底與麻油雞湯底，聞起來酒香但意外爽口。</li><li>有手臂龍蝦 888 元的方案。</li><li>附自助吧，棉花糖吃到飽。</li><li>地址：新竹縣竹北市竹仁里三民路251號，電話 03 555 0979。</li><li>營業時間平日 11:30–14:30、17:00–21:30，週六日 11:30–21:30。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E7%AB%B9%E7%B8%A3%E7%AB%B9%E5%8C%97%E5%B8%82%E4%B8%89%E6%B0%91%E8%B7%AF251%E8%99%9F%20%E6%B3%89%E5%B8%83%E8%8B%91%E9%8D%8B%E7%89%A9" target="_blank" rel="noopener">泉布苑鍋物 三民店  📍</a><a class="lk" href="https://www.facebook.com/share/p/1C1fPXXgcj/" target="_blank" rel="noopener">原始貼文  ↗</a><a class="lk" href="https://3yboy.tw/quanbuyuan2026/" target="_blank" rel="noopener">心得文（3yboy）  ↗</a></div>
+        <div class="tags"><span class="tag">新竹</span><span class="tag">竹北</span><span class="tag">火鍋</span><span class="tag">自助吧</span><span class="tag">聚餐</span></div>
+        <div class="date">收錄 2026/8/12</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>韓國便利商店必吃18樣（朱迪的韓遊圖鑑）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>CU、GS25、7-Eleven 三家便利商店的必吃清單，分成必喝／甜點／鹹食各 6 樣，附店家與價格。</li><li>必喝 TOP6：香蕉牛奶 CU ₩2,500、希臘乳酪飲 GS25 ₩3,400、抹茶 Highball 7-Eleven ₩4,500、黑咖啡 CU ₩2,000、BR薄荷巧克力牛奶 7-Eleven ₩2,500、韓星同款蘋果汁 7-Eleven ₩3,000。</li><li>甜點 TOP6：杜拜巧克力麻糬 CU ₩5,000、抹茶焦糖冰淇淋 7-Eleven ₩4,000、希臘優格 GS25 ₩4,500、延世牛奶麵包 CU ₩2,500、原味優格 7-Eleven ₩2,500、山竹冰棒 7-Eleven ₩3,000。</li><li>鹹食 TOP6：青椒起司義大利麵 CU ₩4,000、火雞麵起司香腸紫菜包飯 7-Eleven ₩3,200、即食蟹膏醬 GS25 ₩3,500、韓國白切肉 GS25 ₩7,500、豬肚雞湯飯 7-Eleven ₩4,500、牛肉蘑菇粥 ₩3,000。</li><li>想安全牌就選香蕉牛奶；</li><li>喜歡酒感可以試抹茶 Highball，作者標的邪惡指數也是最高之一。</li><li>懶人逛法：CU 主攻香蕉牛奶與優格類、GS25 主攻希臘優格與蟹膏醬、7-Eleven 主攻甜點和鹹食。</li></ul>
+        <div class="links"><a class="lk" href="https://www.facebook.com/share/1HN4xTYyD4/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">韓國</span><span class="tag">便利商店</span><span class="tag">必買</span><span class="tag">CU</span><span class="tag">GS25</span><span class="tag">7-Eleven</span></div>
+        <div class="date">收錄 2026/8/13</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>味、肉舖韓國烤肉 맛있는 고기집（新竹）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>新竹的韓式烤肉店，適合聚餐。</li><li>豬肉拼盤 $1280 有厚切五花、厚切梅花豬、松阪豬、生菜與韓式蒸蛋，五花肉用特殊烤盤且有專人代烤。</li><li>六種小菜無限續，第一口建議夾蔥醬、泡菜和白蘿蔔一起吃。</li><li>梅花豬與松阪豬要自己烤，松阪豬口感脆彈。</li><li>蒸蛋很膨要趁熱吃，放久會消風。</li><li>起司辣炒年糕鍋 $480，魚板與年糕覆滿起司，一拉就是滿滿牽絲。</li><li>辣牛肉鍋 $270 是純辣路線，牛肉嫩。</li><li>海鮮煎餅 $230 每口都吃得到鮮蝦。</li><li>石鍋拌飯 $220 淋辣醬拌勻後靜置一下，底層會有脆鍋巴。</li><li>韓國炸醬麵 $220 醬裹麵帶點甜味。</li><li>地址：新竹市東區南大路30號，電話 03 561 6738。</li><li>營業時間 11:30–14:00、17:00–22:00，週二公休。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E7%AB%B9%E5%B8%82%E6%9D%B1%E5%8D%80%E5%8D%97%E5%A4%A7%E8%B7%AF30%E8%99%9F%20%E5%91%B3%E8%82%89%E8%88%96%E9%9F%93%E5%9C%8B%E7%83%A4%E8%82%89" target="_blank" rel="noopener">味、肉舖韓國烤肉  📍</a><a class="lk" href="https://www.facebook.com/share/r/1HPZA5fnDe/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">新竹</span><span class="tag">韓式烤肉</span><span class="tag">聚餐</span><span class="tag">代烤</span><span class="tag">起司年糕</span></div>
+        <div class="date">收錄 2026/8/13</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>end studio（釜山廣安里水果蛋糕甜點店）</h3>
+          <span class="status warn">待補資料</span>
+        </div>
+        <ul class='sum'><li>釜山廣安里的甜點店，招牌是堆滿水果的蛋糕，份量誇張、放在桌上就很好拍。</li><li>不是只有外表，水果新鮮、奶油配蛋糕體不會死甜。</li><li>一開門店內就幾乎全滿，蛋糕沒剩幾塊，網友回報開門前就要排隊。</li><li>整條水果蛋糕是現作，價格不便宜但評價很好。</li><li>適合安排在不趕行程的廣安里下午時段。</li><li>原貼文未寫詳細地址，只提到在廣安里，去之前建議再確認。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=end%20studio%20%EA%B4%91%EC%95%88%EB%A6%AC%20%EB%B6%80%EC%82%B0" target="_blank" rel="noopener">end studio 廣安里  📍</a><a class="lk" href="https://www.facebook.com/share/p/1BhSf3Ds9R/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">廣安里</span><span class="tag">甜點</span><span class="tag">蛋糕</span><span class="tag">咖啡廳</span><span class="tag">拍照</span></div>
+        <div class="date">收錄 2026/8/16</div>
+      </article></div>
+  </section>
+  <section class="block" data-cat="學習知識" style="--accent:#8a6d1f">
+    <h2><span class="ico">📚</span>學習知識<span class="count">3</span></h2>
+    <div class="cards">
+      <article class="card">
+        <div class="chead">
+          <h3>iPhone 手持拍煙火的設定（紀映光）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>用 iPhone 手持就能拍出漂亮煙火，不需要腳架。</li><li>設定：曝光度 -1、夜景模式開到最大、檔案格式 RAW、濾鏡選鮮豔。</li><li>等煙火綻放的瞬間按下快門，手盡量穩住到快門結束。</li><li>作者以 iPhone 17 Pro Max 在日本長岡花火大會實拍。</li></ul>
+        <div class="links"><a class="lk" href="https://www.facebook.com/share/p/18Q2wCewGp/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">攝影</span><span class="tag">iPhone</span><span class="tag">煙火</span><span class="tag">技巧</span><span class="tag">夜景</span></div>
+        <div class="date">收錄 2026/8/11</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>iPhone 拍銀河與流星的設定（紀映光）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>用 iPhone 也能拍出銀河和流星，作者在合歡山武嶺（海拔3275公尺）實拍。</li><li>1. 要在沒有光害的地方拍攝，月亮也算光害，中部首選合歡山。</li><li>2. 手機一定要架在單眼腳架上，手持沒辦法開啟30秒曝光模式。</li><li>3. 開啟夜拍模式並把時間調到最長。</li><li>4. 靜置手機1～2秒，手機會自動開啟30秒模式。</li><li>5. 按下快門，可開啟自拍倒數避免手震。</li><li>6. 等待30秒即完成。</li><li>7. 事後到 Lightroom 增加清晰度、去朦朧。</li><li>8. 流星常是拍完才發現有入鏡，建議多拍幾張增加命中率。</li><li>拍攝器材為 iPhone 16 Pro Max，時間點是英仙座流星雨爆發期。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%90%88%E6%AD%A1%E5%B1%B1%E6%AD%A6%E5%B6%BA" target="_blank" rel="noopener">拍攝地點：合歡山武嶺  📍</a><a class="lk" href="https://www.facebook.com/share/1DSFXTxFUG/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">攝影</span><span class="tag">iPhone</span><span class="tag">銀河</span><span class="tag">流星</span><span class="tag">夜拍</span><span class="tag">合歡山</span></div>
+        <div class="date">收錄 2026/8/12</div>
+      </article>
+      <article class="card">
+        <div class="chead">
+          <h3>Anthropic 官方 17 個 Claude Skills 整理（數位時代／未來商務）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>Skill 是資料夾形式的指令包，Claude 載入後能用更穩定的方式完成特定工作，不必每次重新給脈絡。</li><li>官方在 GitHub 公開 17 個 Skill，免費開源，分成文件製作、設計品牌、工程開發、溝通內容四類再加一個 Meta Skill。</li><li>文件製作類：pdf、docx、xlsx、pptx，可串成「PDF擷取→Excel分析→Word報告→PPT簡報」完整流程。</li><li>設計品牌類：brand-guidelines、canvas-design、theme-factory、algorithmic-art。</li><li>工程開發類：claude-api、mcp-builder、frontend-design、web-artifacts-builder、webapp-testing。</li><li>溝通內容類：doc-coauthoring、internal-comms、slack-gif-creator。</li><li>Meta Skill：skill-creator，會引導你寫出符合官方格式的自訂 Skill，特別強調 description 措辭是能否正確觸發的關鍵。</li><li>claude.ai 免費版也能用，但要先啟用 Code execution and file creation，並以 ZIP 上傳下載來的 Skill；</li><li>付費版可直接在 Skill 資料庫安裝。</li><li>安裝建議：商務用戶裝 pdf+docx+xlsx+pptx，內容品牌類裝 brand-guidelines+canvas-design+doc-coauthoring，工程師裝 claude-api+mcp-builder+frontend-design+webapp-testing。</li><li>重要提醒：Skill 不是裝越多越好，功能相近會產生觸發競爭導致誤觸發，建議只留符合自己情境的 5 到 8 個。</li></ul>
+        <div class="links"><a class="lk" href="https://www.bnext.com.tw/article/91307/anthropic-17-claude-skills-" target="_blank" rel="noopener">原始文章  ↗</a><a class="lk" href="https://github.com/anthropics/skills" target="_blank" rel="noopener">Anthropic Skills GitHub  ↗</a></div>
+        <div class="tags"><span class="tag">AI</span><span class="tag">Claude</span><span class="tag">Skills</span><span class="tag">工作術</span><span class="tag">工具</span><span class="tag">自動化</span></div>
+        <div class="date">收錄 2026/8/15</div>
+      </article></div>
+  </section>
+  <section class="block" data-cat="其他" style="--accent:#5a6270">
+    <h2><span class="ico">🔖</span>其他<span class="count">1</span></h2>
+    <div class="cards">
+      <article class="card">
+        <div class="chead">
+          <h3>BADA SAND 釜山伴手禮（奶油餅乾）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>釜山人氣伴手禮，奶油味餅乾酥脆不甜膩。</li><li>必買：Busan BADA SAND（蜂蜜焦糖）、Busan BADA COOKIE（經典曲奇罐）。</li><li>主門市 BADA SAND LAND 在海雲台站4號出口步行3~5分鐘，走1分鐘可到 BADA SAND STUDIO 免費拍四格人生照。</li><li>另有沙下區 HILLS 店與釜山鎮區 E-World 店。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B6%80%EC%82%B0%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC%20%EC%9A%B0%EB%8F%991%EB%A1%9C20%EB%B2%88%EA%B8%B8%2021" target="_blank" rel="noopener">BADA SAND LAND 海雲台門市  📍</a><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B6%80%EC%82%B0%20%EC%82%AC%ED%95%98%EA%B5%AC%20%EA%B0%90%EB%82%B42%EB%A1%9C%20127" target="_blank" rel="noopener">BADA SAND HILLS（沙下區）[Google Maps]  📍</a><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A0%84%ED%8F%AC%EB%8C%80%EB%A1%9C209%EB%B2%88%EA%B8%B8%2021" target="_blank" rel="noopener">BADA SAND E-World（釜山鎮區）[Google Maps]  📍</a><a class="lk" href="https://www.facebook.com/share/r/1D89mWDZpV/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">釜山</span><span class="tag">海雲台</span><span class="tag">伴手禮</span><span class="tag">餅乾</span><span class="tag">購物</span></div>
+        <div class="date">收錄 2026/8/2</div>
+      </article></div>
+  </section>
+<footer>由 Google Drive「生活收藏總表 · 待整理」整理產生</footer>
+</div>
+<script>
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');const f=b.dataset.f;
+  document.querySelectorAll('.block').forEach(s=>s.style.display=(f==='all'||s.dataset.cat===f)?'':'none');
+});
+</script></body></html>
