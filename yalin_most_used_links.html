@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yalin常用連結</title>
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --text: #1d1f24;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 32px 20px 60px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  #search {
+    display: block;
+    max-width: 420px;
+    margin: 0 auto 32px;
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  .grid {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  .category {
+    flex: 1 1 0;
+    min-width: 200px;
+    border-radius: 10px;
+    padding: 16px 16px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .category h2 {
+    font-size: 15px;
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li { margin-bottom: 4px; }
+  li.hidden { display: none; }
+  a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+  }
+  a:hover {
+    background: rgba(255,255,255,0.7);
+  }
+  a img {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    border-radius: 3px;
+  }
+  .category.hidden { display: none; }
+
+  .cat-general   { background: #FDE7E9; }
+  .cat-life      { background: #E6F2D9; }
+  .cat-bank      { background: #DCEEF7; }
+  .cat-study     { background: #FFF6D0; }
+  .cat-investment { background: #EBE0F5; }
+  .cat-tools     { background: #FBE9DA; }
+  .cat-travel    { background: #D9F2EF; }
+</style>
+</head>
+<body>
+  <h1>yalin常用連結 (2026/09/05)</h1>
+  <div class="subtitle">依 Most_Used_links.xlsx 整理</div>
+  <input id="search" type="text" placeholder="搜尋連結...">
+
+  <div class="grid" id="grid">
+
+    <div class="category cat-general" data-name="general">
+      <h2>General</h2>
+      <ul>
+        <li><a href="https://www.google.com/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google</a></li>
+        <li><a href="https://www.google.com/maps" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google Maps</a></li>
+        <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=mail.google.com">Google Gmail</a></li>
+        <li><a href="https://drive.google.com/drive/home" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=drive.google.com">Google 雲端硬碟</a></li>
+        <li><a href="https://www.youtube.com/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=youtube.com">Youtube</a></li>
+        <li><a href="https://hamivideo.hinet.net/hamivideo/index.do" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=hamivideo.hinet.net">Hamivideo</a></li>
+        <li><a href="https://www.disneyplus.com/zh-tw" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=disneyplus.com">Disney+</a></li>
+      </ul>
+    </div>
+
+    <div class="category cat-life" data-name="生活">
+      <h2>生活</h2>
+      <ul>
+        <li><a href="https://www.topcashback.com/home/#" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=topcashback.com">Topcashback</a></li>
+        <li><a href="https://www.cwa.gov.tw/V8/C/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=cwa.gov.tw">中央氣象局</a></li>
+        <li><a href="https://www.railway.gov.tw/tra-tip-web/tip" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=railway.gov.tw">台鐵時刻表</a></li>
+        <li><a href="https://www.thsrc.com.tw/ArticleContent/a3b630bb-1066-4352-a1ef-58c7b4e8ef7c" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=thsrc.com.tw">高鐵時刻表</a></li>
+        <li><a href="https://www.water.gov.tw/ch/EQuery/WaterFeeQuery?nodeId=753" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=water.gov.tw">水費查詢</a></li>
+        <li><a href="https://service.taipower.com.tw/ebpps2/simplebill/simple-query-bill" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=taipower.com.tw">電費查詢</a></li>
+        <li><a href="https://www.hsinchugas.com.tw/service/inquiry/page1" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=hsinchugas.com.tw">瓦斯費(天然氣)查詢</a></li>
+        <li><a href="https://reg.ntuh.gov.tw/WebReg/WebReg/BranchIndex?vHospCode=T4" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=ntuh.gov.tw">臺大分院新竹醫院掛號</a></li>
+        <li><a href="https://www6.vghtpe.gov.tw/reg/sectList.do?type=return" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=vghtpe.gov.tw">臺北榮民總醫院掛號</a></li>
+        <li><a href="https://www.hc.mmh.org.tw/child/find_division.php" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=mmh.org.tw">新竹馬偕兒童醫院掛號</a></li>
+        <li><a href="https://www.hc.mmh.org.tw/find_division.php" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=mmh.org.tw">新竹馬偕醫院掛號</a></li>
+        <li><a href="https://yalinbear.github.io/General/Life_Collection_Summary.html" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=yalinbear.github.io">YL生活收藏</a></li>
+        <li><a href="https://yalinbear.github.io/General/House_2D_floorplan_phone_basic.html" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=yalinbear.github.io">鼎東賦D15_2D平面圖_基本版</a></li>
+        <li><a href="https://yalinbear.github.io/General/House_2D_floorplan_phone_develop.html" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=yalinbear.github.io">鼎東賦D15_2D平面圖_規劃版</a></li>
+        <li><a href="https://yalinbear.github.io/General/House_3D_floorplan_phone.html" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=yalinbear.github.io">鼎東賦D15_3D立體圖</a></li>
+      </ul>
+    </div>
+
+    <div class="category cat-travel" data-name="旅遊">
+      <h2>旅遊</h2>
+      <ul>
+        <li><a href="https://www.klook.com/zh-TW/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=klook.com">Klook</a></li>
+        <li><a href="https://www.agoda.com/zh-tw/?cid=1922895&tag=e9ea26c2-c046-468f-939d-97d11075d6e0&gclid=CjwKCAjwvZHTBhAlEiwA1ug5PwJhZELaBkdbQj5K-BLzsbo2vL3RpGI8UJD7l7lnIgsSOPVe1FvvtxoCwP8QAvD_BwE&ds=HAmN0Upv9Cv%2BH3EW" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=agoda.com">Agoda</a></li>
+        <li><a href="https://tw.trip.com/?locale=zh_tw&allianceid=742329&sid=1621576&allianceid=742329&sid=1621576&ppcid=ckid-80788760871_adid-686718053001_akid-kwd-11635721_adgid-158290330558&utm_source=google&utm_medium=cpc&utm_campaign=20920047572&gad_source=1&gad_campaignid=20920047572&gbraid=0AAAAABn2eFL-46CFonOL_rdg_NURNPPf3&gclid=CjwKCAjwvZHTBhAlEiwA1ug5PwPqFAEFPhhaK2Saxm0o_1VOFpLazIZkNs_Btqg0LCCXD2xCOwoMUBoCDO8QAvD_BwE" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=trip.com">Trip.com</a></li>
+        <li><a href="https://www.booking.com/things-to-do/city/fr/tours/tours.zh-tw.html?aid=8131294&label=google-JXV9rtwWI18MU7Ee2dGMgQS799619911876:pl:ta:p1:p2:ac:ap:neg:fi:tikwd-380570173:lp9196786:li:dec:dm:cid23423909671:agid194107078951&gad_source=1&gad_campaignid=23423909671&gbraid=0AAAAA-53U8HgiOwnNQOhyEsP_jlA51rj7&gclid=CjwKCAjwvZHTBhAlEiwA1ug5P1rUJKd62Z4O5BoO4u0RSE5ZcP3Yet68EtXOuCw4GpbF86aDq1xsYRoCLh0QAvD_BwE" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=booking.com">Booking.com</a></li>
+        <li><a href="https://yalinbear.github.io/travel/Italy_switzerland_schedule_202607_AI_v0.7_phone.html" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=yalinbear.github.io">2026 瑞士義大利行程</a></li>
+        <li><a href="https://yalinbear.github.io/travel/Korea_Busan_schedule_202609_AI_v0.3_phone.html" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=yalinbear.github.io">2026 韓國釜山行程</a></li>
+      </ul>
+    </div>
+
+    <div class="category cat-bank" data-name="銀行">
+      <h2>銀行</h2>
+      <ul>
+        <li><a href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=tcb-bank.com.tw">合庫網銀</a></li>
+        <li><a href="https://mma.sinopac.com/MemberPortal/Member/NextWebLogin.aspx" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=sinopac.com">永豐網銀mma</a></li>
+        <li><a href="https://www.hsbc.com.tw/security/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=hsbc.com.tw">匯豐HSBC網銀</a></li>
+        <li><a href="https://card.hsbc.com.tw/#/Login" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=hsbc.com.tw">匯豐HSBC信用卡</a></li>
+        <li><a href="https://www.ctbcbank.com/twrbc/twrbc-general/ot001/010" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=ctbcbank.com">中國信託網銀</a></li>
+        <li><a href="https://ebank.taipeifubon.com.tw/B2C/common/Index.faces" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=taipeifubon.com.tw">台北富邦網銀</a></li>
+        <li><a href="https://my.taishinbank.com.tw/TIBNetBank/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=taishinbank.com.tw">台新網銀</a></li>
+        <li><a href="https://cnb3.tbb.com.tw/cnb3clientweb/login" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=tbb.com.tw">台灣企網銀</a></li>
+        <li><a href="https://ebank.megabank.com.tw/nib/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=megabank.com.tw">兆豐網銀</a></li>
+        <li><a href="https://www.cathaybk.com.tw/mybank" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=cathaybk.com.tw">國泰世華網銀</a></li>
+        <li><a href="https://ipost.post.gov.tw/pst/home.html" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=post.gov.tw">郵局網銀</a></li>
+      </ul>
+    </div>
+
+    <div class="category cat-study" data-name="課程學習">
+      <h2>課程學習</h2>
+      <ul>
+        <li><a href="http://114.32.62.101/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=114.32.62.101">蘇哲數學/楊哲理化雲端</a></li>
+        <li><a href="https://www.cambly.com/student/login" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=cambly.com">Cambly</a></li>
+        <li><a href="https://www.cambly.com/kids/login" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=cambly.com">Cambly Kids</a></li>
+      </ul>
+    </div>
+
+    <div class="category cat-investment" data-name="投資">
+      <h2>投資</h2>
+      <ul>
+        <li><a href="https://www.nasdaq.com/market-activity/etf/tlt/dividend-history" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=nasdaq.com">TLT Dividend History</a></li>
+        <li><a href="https://www.moneydj.com/etf/x/basic/basic0005.xdjhtm?etfid=00687b.tw" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=moneydj.com">國泰美債20年配息</a></li>
+        <li><a href="https://www.moneydj.com/etf/x/basic/basic0005.xdjhtm?etfid=00679b.tw" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=moneydj.com">元太美債20配息</a></li>
+        <li><a href="https://www.google.com/search?q=onds+stock&sca_esv=4f86b927197d87de&sxsrf=APpeQntPhKCDLxxdWKamwlevRQQxCZBHmA:1785656361325&source=lnt&tbs=qdr:d&sa=X&sqi=2&ved=2ahUKEwiG9O2ouIGWAxXPlK8BHV79M_sQpwV6BAgGEAw&biw=1746&bih=818&dpr=1.1" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google 24hr-onds stock</a></li>
+        <li><a href="https://www.google.com/search?q=soundhound+ai+stock&sca_esv=54ce997b4bd921c3&sxsrf=APpeQntUOaZpFuQstau7KK9zVKNdxhzXBA:1785669751425&source=lnt&tbs=qdr:d&sa=X&sqi=2&ved=2ahUKEwiD4eCZ6oGWAxU1gq8BHaNSEfsQpwV6BAgHEAw&biw=1746&bih=818&dpr=1.1" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google 24hr-soundhound ai stock</a></li>
+        <li><a href="https://www.google.com/search?q=bbai+stock&sca_esv=54ce997b4bd921c3&sxsrf=APpeQnunaiw12WDaKTL0JlxU__a6QuaZbg:1785669784520&source=lnt&tbs=qdr:d&sa=X&sqi=2&ved=2ahUKEwjK2sSp6oGWAxVTe_UHHRQyDqcQpwV6BAgIEAw&biw=1746&bih=818&dpr=1.1" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google 24hr-bbai stock</a></li>
+        <li><a href="https://www.google.com/search?q=serv+stock&sca_esv=54ce997b4bd921c3&sxsrf=APpeQnuTFg7z6KfK_IVw27eEOelbqHySUA:1785669805244&source=lnt&tbs=qdr:d&sa=X&sqi=2&ved=2ahUKEwiuyrWz6oGWAxWRa_UHHbdqKdsQpwV6BAgHEAw&biw=1746&bih=818&dpr=1.1" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google 24hr-serv stock</a></li>
+        <li><a href="https://www.google.com/search?q=c3+ai+stock&sca_esv=54ce997b4bd921c3&sxsrf=APpeQnvQ0j1n4cvXMVdyZyJlAcLjut4ilQ:1785669830138&source=lnt&tbs=qdr:d&sa=X&sqi=2&ved=2ahUKEwiug6W_6oGWAxUXja8BHb8YC_oQpwV6BAgGEAw&biw=1746&bih=818&dpr=1.1" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google 24hr-c3 ai stock</a></li>
+        <li><a href="https://www.google.com/search?q=leu+stock&sca_esv=54ce997b4bd921c3&sxsrf=APpeQnvgE8a5lVcA7w1KqJz-gUzn7IJUIg:1785669860247&source=lnt&tbs=qdr:d&sa=X&sqi=2&ved=2ahUKEwjQ3dLN6oGWAxV1nq8BHcBzFjYQpwV6BAgGEAw&biw=1746&bih=818&dpr=1.1" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google 24hr-leu stock</a></li>
+        <li><a href="https://www.google.com/search?q=grab+stock&sca_esv=54ce997b4bd921c3&sxsrf=APpeQnvvXmgIr1lAXjpz5EtEX659PngYCg:1785669905444&source=lnt&tbs=qdr:d&sa=X&sqi=2&ved=2ahUKEwiCq5nj6oGWAxWagK8BHZ8JCaUQpwV6BAgFEAw&biw=1746&bih=818&dpr=1.1" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google 24hr-grab stock</a></li>
+        <li><a href="https://www.google.com/search?q=nnox+stock&sca_esv=58841138e93f763c&sxsrf=APpeQnvOb2kG8uyVlcamJ_CY1jHkuQ_v1A:1786105221264&source=lnt&tbs=qdr:d&sa=X&sqi=2&ved=2ahUKEwjAsvq5wI6WAxVxZfUHHdpKE5kQpwV6BAgIEAw&biw=1746&bih=818&dpr=1.1" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google 24hr-nnox stock</a></li>
+      </ul>
+    </div>
+
+    <div class="category cat-tools" data-name="tools">
+      <h2>Tools</h2>
+      <ul>
+        <li><a href="https://gemini.google.com/app?utm_source=app_launcher&utm_medium=owned&utm_campaign=base_all" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=google.com">Google Gemini</a></li>
+        <li><a href="https://chatgpt.com/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=chatgpt.com">ChatGPT</a></li>
+        <li><a href="https://us2.make.com/organization/7911731/dashboard" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=make.com">Make</a></li>
+        <li><a href="https://github.com/yalinbear" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=github.com">GitHub</a></li>
+        <li><a href="https://developers.line.biz/en/" target="_blank"><img src="https://www.google.com/s2/favicons?sz=32&domain=developers.line.biz">Line Developers</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      document.querySelectorAll('.category').forEach(cat => {
+        let anyVisible = false;
+        cat.querySelectorAll('li').forEach(li => {
+          const text = li.textContent.toLowerCase();
+          const match = text.includes(q);
+          li.classList.toggle('hidden', !match);
+          if (match) anyVisible = true;
+        });
+        cat.classList.toggle('hidden', !anyVisible);
+      });
+    });
+  </script>
+</body>
+</html>
