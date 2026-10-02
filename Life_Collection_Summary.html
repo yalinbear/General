@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>生活收藏總表</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:32px 20px 64px;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,sans-serif;
+background:#f6f5f2;color:#23262b;line-height:1.7}
+.wrap{max-width:1080px;margin:0 auto}
+header h1{margin:0 0 6px;font-size:28px;letter-spacing:.5px}
+header p{margin:0 0 18px;color:#6b7078;font-size:14px}
+.search{position:relative;margin-bottom:12px}
+.search input{width:100%;border:1px solid #d9d6cf;background:#fff;border-radius:10px;padding:11px 74px 11px 38px;
+font:inherit;font-size:14px;color:#23262b;outline:none;transition:.15s}
+.search input:focus{border-color:#9aa0a8;box-shadow:0 0 0 3px rgba(154,160,168,.15)}
+.search .ic{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:14px;opacity:.5}
+.search .clr{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:#eceae5;
+border-radius:6px;padding:3px 9px;font:inherit;font-size:12px;color:#6b7078;cursor:pointer;display:none}
+.search .clr:hover{background:#e0ddd6}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.filters button{border:1px solid #d9d6cf;background:#fff;border-radius:999px;padding:6px 15px;font:inherit;font-size:13px;
+color:#4a4f57;cursor:pointer;transition:.15s}
+.filters button:hover{border-color:#9aa0a8}
+.filters button.on{background:#23262b;color:#fff;border-color:#23262b}
+.hits{font-size:13px;color:#8a8f96;margin:0 0 26px}
+.block{margin-bottom:38px}
+.block h2{display:flex;align-items:center;gap:10px;font-size:19px;margin:0 0 14px;padding-bottom:9px;
+border-bottom:2px solid var(--accent);color:var(--accent)}
+.ico{font-size:20px}
+.count{margin-left:auto;font-size:12px;font-weight:400;background:var(--accent);color:#fff;border-radius:999px;padding:2px 10px}
+.cards{display:flex;flex-direction:column;gap:14px}
+.card{background:#fff;border:1px solid #e6e3dd;border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;
+box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.chead{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.chead h3{margin:0;font-size:15.5px;flex:1;line-height:1.45}
+.status{font-size:11px;padding:3px 9px;border-radius:5px;white-space:nowrap;flex-shrink:0}
+.status.todo{background:#eef2f7;color:#4a6383}
+.status.warn{background:#fdf1e2;color:#a8631a}
+ul.sum{margin:0 0 13px;padding:0 0 0 15px;list-style:none}
+ul.sum li{position:relative;margin:0 0 5px;font-size:13.5px;color:#4c525a;line-height:1.72;text-wrap:pretty}
+ul.sum li::before{content:"";position:absolute;left:-13px;top:.72em;width:5px;height:5px;border-radius:50%;
+background:var(--accent);opacity:.45}
+mark{background:#fff2a8;color:inherit;border-radius:2px;padding:0 1px}
+.links{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:11px}
+.lk{font-size:12.5px;text-decoration:none;color:#3d6ea8;border:1px solid #dce3ec;background:#f6f9fd;
+border-radius:6px;padding:4px 10px;transition:.15s}
+.lk:hover{background:#eaf1fa;border-color:#b9cbe2}
+.lk.map{color:#1f7a4d;background:#f2faf5;border-color:#d3e9dd}
+.lk.map:hover{background:#e6f5ec;border-color:#a9d8be}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11px;color:#6b7078;background:#f1efea;border-radius:4px;padding:2px 8px;cursor:pointer}
+.tag:hover{background:#e4e0d8;color:#3c4148}
+.date{margin-top:10px;font-size:11.5px;color:#9aa0a8}
+.empty{display:none;text-align:center;color:#9aa0a8;font-size:14px;padding:40px 0}
+footer{margin-top:40px;font-size:12px;color:#9aa0a8;text-align:center}
+@media(max-width:640px){body{padding:20px 14px 48px}.links{gap:6px}ul.sum li{font-size:13px}}
+</style></head><body><div class="wrap">
+<header><h1>生活收藏總表</h1><p>共 14 筆 · 依類別分區　·　已完成 18 筆不顯示</p></header>
+<div class="search">
+  <span class="ic">🔍</span>
+  <input id="q" type="search" placeholder="搜尋店名、地點、標籤、摘要內容…（例：札幌、親子、火鍋）" autocomplete="off">
+  <button class="clr" id="clr">清除</button>
+</div>
+<div class="filters"><button class="on" data-f="all">全部</button><button data-f="美食餐廳">🍽️ 美食餐廳</button><button data-f="學習知識">📚 學習知識</button></div>
+<p class="hits" id="hits"></p>
+
+  <section class="block" data-cat="美食餐廳" style="--accent:#b8562f">
+    <h2><span class="ico">🍽️</span>美食餐廳<span class="count">9</span></h2>
+    <div class="cards">
+      <article class="card" data-s="私嚐の吃飯（新竹咖哩飯） 新竹高評價的日式咖哩飯專門店。咖哩不死甜、香料味夠，吃起來順口不易膩。推薦唐揚雞咖哩，可另外加點炸豬排；炸物外酥內多汁，配咖哩很下飯。蛤蜊烏龍麵的蛤蜊多到快蓋住麵，湯頭很鮮。店內環境舒服、不趕人，適合慢慢吃慢慢聊。是寵物友善餐廳，常看到客人帶狗狗來。位置在新竹中正路過圓環第一條巷子右轉，美乃斯旁巷子進去、國稅局旁邊，附近好停車。 新竹 咖哩 日式 寵物友善 口袋名單 美食餐廳 待安排 私嚐の吃飯 [google maps] 原始貼文">
+        <div class="chead">
+          <h3>私嚐の吃飯（新竹咖哩飯）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>新竹高評價的日式咖哩飯專門店。</li><li>咖哩不死甜、香料味夠，吃起來順口不易膩。</li><li>推薦唐揚雞咖哩，可另外加點炸豬排；</li><li>炸物外酥內多汁，配咖哩很下飯。</li><li>蛤蜊烏龍麵的蛤蜊多到快蓋住麵，湯頭很鮮。</li><li>店內環境舒服、不趕人，適合慢慢吃慢慢聊。</li><li>是寵物友善餐廳，常看到客人帶狗狗來。</li><li>位置在新竹中正路過圓環第一條巷子右轉，美乃斯旁巷子進去、國稅局旁邊，附近好停車。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A7%81%E5%9A%90%E3%81%AE%E5%90%83%E9%A3%AF%20%E6%96%B0%E7%AB%B9%E5%B8%82%E4%B8%AD%E6%AD%A3%E8%B7%AF" target="_blank" rel="noopener">私嚐の吃飯  📍</a><a class="lk" href="https://www.facebook.com/share/p/19KzSWQ2Gd/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">新竹</span><span class="tag">咖哩</span><span class="tag">日式</span><span class="tag">寵物友善</span><span class="tag">口袋名單</span></div>
+        <div class="date">收錄 2026/8/8</div>
+      </article>
+      <article class="card" data-s="泉布苑鍋物 三民店（竹北火鍋） 竹北市場旁的火鍋店，特色湯底是客家湯圓鍋底與麻油雞湯底，聞起來酒香但意外爽口。有手臂龍蝦 888 元的方案。附自助吧，棉花糖吃到飽。地址：新竹縣竹北市竹仁里三民路251號，電話 03 555 0979。營業時間平日 11:30–14:30、17:00–21:30，週六日 11:30–21:30。 新竹 竹北 火鍋 自助吧 聚餐 美食餐廳 待安排 泉布苑鍋物 三民店 [google maps] 原始貼文 心得文（3yboy）">
+        <div class="chead">
+          <h3>泉布苑鍋物 三民店（竹北火鍋）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>竹北市場旁的火鍋店，特色湯底是客家湯圓鍋底與麻油雞湯底，聞起來酒香但意外爽口。</li><li>有手臂龍蝦 888 元的方案。</li><li>附自助吧，棉花糖吃到飽。</li><li>地址：新竹縣竹北市竹仁里三民路251號，電話 03 555 0979。</li><li>營業時間平日 11:30–14:30、17:00–21:30，週六日 11:30–21:30。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E7%AB%B9%E7%B8%A3%E7%AB%B9%E5%8C%97%E5%B8%82%E4%B8%89%E6%B0%91%E8%B7%AF251%E8%99%9F%20%E6%B3%89%E5%B8%83%E8%8B%91%E9%8D%8B%E7%89%A9" target="_blank" rel="noopener">泉布苑鍋物 三民店  📍</a><a class="lk" href="https://www.facebook.com/share/p/1C1fPXXgcj/" target="_blank" rel="noopener">原始貼文  ↗</a><a class="lk" href="https://3yboy.tw/quanbuyuan2026/" target="_blank" rel="noopener">心得文（3yboy）  ↗</a></div>
+        <div class="tags"><span class="tag">新竹</span><span class="tag">竹北</span><span class="tag">火鍋</span><span class="tag">自助吧</span><span class="tag">聚餐</span></div>
+        <div class="date">收錄 2026/8/12</div>
+      </article>
+      <article class="card" data-s="味、肉舖韓國烤肉 맛있는 고기집（新竹） 新竹的韓式烤肉店，適合聚餐。豬肉拼盤 $1280 有厚切五花、厚切梅花豬、松阪豬、生菜與韓式蒸蛋，五花肉用特殊烤盤且有專人代烤。六種小菜無限續，第一口建議夾蔥醬、泡菜和白蘿蔔一起吃。梅花豬與松阪豬要自己烤，松阪豬口感脆彈。蒸蛋很膨要趁熱吃，放久會消風。起司辣炒年糕鍋 $480，魚板與年糕覆滿起司，一拉就是滿滿牽絲。辣牛肉鍋 $270 是純辣路線，牛肉嫩。海鮮煎餅 $230 每口都吃得到鮮蝦。石鍋拌飯 $220 淋辣醬拌勻後靜置一下，底層會有脆鍋巴。韓國炸醬麵 $220 醬裹麵帶點甜味。地址：新竹市東區南大路30號，電話 03 561 6738。營業時間 11:30–14:00、17:00–22:00，週二公休。 新竹 韓式烤肉 聚餐 代烤 起司年糕 美食餐廳 待安排 味、肉舖韓國烤肉 [google maps] 原始貼文">
+        <div class="chead">
+          <h3>味、肉舖韓國烤肉 맛있는 고기집（新竹）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>新竹的韓式烤肉店，適合聚餐。</li><li>豬肉拼盤 $1280 有厚切五花、厚切梅花豬、松阪豬、生菜與韓式蒸蛋，五花肉用特殊烤盤且有專人代烤。</li><li>六種小菜無限續，第一口建議夾蔥醬、泡菜和白蘿蔔一起吃。</li><li>梅花豬與松阪豬要自己烤，松阪豬口感脆彈。</li><li>蒸蛋很膨要趁熱吃，放久會消風。</li><li>起司辣炒年糕鍋 $480，魚板與年糕覆滿起司，一拉就是滿滿牽絲。</li><li>辣牛肉鍋 $270 是純辣路線，牛肉嫩。</li><li>海鮮煎餅 $230 每口都吃得到鮮蝦。</li><li>石鍋拌飯 $220 淋辣醬拌勻後靜置一下，底層會有脆鍋巴。</li><li>韓國炸醬麵 $220 醬裹麵帶點甜味。</li><li>地址：新竹市東區南大路30號，電話 03 561 6738。</li><li>營業時間 11:30–14:00、17:00–22:00，週二公休。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E7%AB%B9%E5%B8%82%E6%9D%B1%E5%8D%80%E5%8D%97%E5%A4%A7%E8%B7%AF30%E8%99%9F%20%E5%91%B3%E8%82%89%E8%88%96%E9%9F%93%E5%9C%8B%E7%83%A4%E8%82%89" target="_blank" rel="noopener">味、肉舖韓國烤肉  📍</a><a class="lk" href="https://www.facebook.com/share/r/1HPZA5fnDe/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">新竹</span><span class="tag">韓式烤肉</span><span class="tag">聚餐</span><span class="tag">代烤</span><span class="tag">起司年糕</span></div>
+        <div class="date">收錄 2026/8/13</div>
+      </article>
+      <article class="card" data-s="l&#x27;idée sweet 時甜（竹北千層蛋糕，減醣配方） 竹北若山大樓旁的甜點店，主打高顏值與減醣配方，網友回購多次的生日蛋糕愛店。招牌是千層蛋糕，每張餅皮慢火煎製，再疊上當季新鮮水果。用日本製麵粉搭配明治製糖的上白糖，風味細緻、吃起來清爽無負擔。包裝是淡粉色系，送禮很加分。第一次去可以先買單片切塊嚐鮮，六吋整顆三個人一晚就能吃完。竹北店：新竹縣竹北市光明六路東二段355號，03-550-8355，12:00-20:00，週一公休。敦化店：台北市大安區忠孝東路四段216巷27弄12號，02-2778-2712，12:00-20:00。板橋店：新北市板橋區倉後街18號，02-2965-7762，12:00-20:00。 新竹 竹北 台北 板橋 甜點 千層蛋糕 生日蛋糕 減醣 美食餐廳 待安排 時甜 竹北店 [google maps] 時甜 敦化店 [google maps] 時甜 板橋店 [google maps] 原始貼文">
+        <div class="chead">
+          <h3>L&#x27;idée Sweet 時甜（竹北千層蛋糕，減醣配方）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>竹北若山大樓旁的甜點店，主打高顏值與減醣配方，網友回購多次的生日蛋糕愛店。</li><li>招牌是千層蛋糕，每張餅皮慢火煎製，再疊上當季新鮮水果。</li><li>用日本製麵粉搭配明治製糖的上白糖，風味細緻、吃起來清爽無負擔。</li><li>包裝是淡粉色系，送禮很加分。</li><li>第一次去可以先買單片切塊嚐鮮，六吋整顆三個人一晚就能吃完。</li><li>竹北店：新竹縣竹北市光明六路東二段355號，03-550-8355，12:00-20:00，週一公休。</li><li>敦化店：台北市大安區忠孝東路四段216巷27弄12號，02-2778-2712，12:00-20:00。</li><li>板橋店：新北市板橋區倉後街18號，02-2965-7762，12:00-20:00。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E7%AB%B9%E7%B8%A3%E7%AB%B9%E5%8C%97%E5%B8%82%E5%85%89%E6%98%8E%E5%85%AD%E8%B7%AF%E6%9D%B1%E4%BA%8C%E6%AE%B5355%E8%99%9F%20L%27id%C3%A9e%20Sweet%20%E6%99%82%E7%94%9C" target="_blank" rel="noopener">時甜 竹北店  📍</a><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E5%BF%A0%E5%AD%9D%E6%9D%B1%E8%B7%AF%E5%9B%9B%E6%AE%B5216%E5%B7%B727%E5%BC%8412%E8%99%9F%20L%27id%C3%A9e%20Sweet%20%E6%99%82%E7%94%9C" target="_blank" rel="noopener">時甜 敦化店  📍</a><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E5%8C%97%E5%B8%82%E6%9D%BF%E6%A9%8B%E5%8D%80%E5%80%89%E5%BE%8C%E8%A1%9718%E8%99%9F%20L%27id%C3%A9e%20Sweet%20%E6%99%82%E7%94%9C" target="_blank" rel="noopener">時甜 板橋店  📍</a><a class="lk" href="https://www.facebook.com/share/r/1J5385Vm31/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">新竹</span><span class="tag">竹北</span><span class="tag">台北</span><span class="tag">板橋</span><span class="tag">甜點</span><span class="tag">千層蛋糕</span><span class="tag">生日蛋糕</span><span class="tag">減醣</span></div>
+        <div class="date">收錄 2026/8/26</div>
+      </article>
+      <article class="card" data-s="彭湃客家土雞麵館（苗栗三義） 苗栗三義的客家土雞麵館，距離三義交流道約3分鐘車程。雞肉主打用山泉水熬煮，肉質很嫩，建議點雙色拼盤。用餐區分成兩個店面，座位多、空間大，但人潮也很滿。必點：雞肉切盤、干貝土雞肉絲麵加滷蛋。滷味很強，尤其大腸頭滷得很香。戰斧大骨湯很浮誇，直接給一大根。爆蛋小卷是老闆跟船釣朋友另外買的母小卷，裡面滿滿的蛋。地址：367苗栗縣三義鄉勝興村水美街86號，電話 0958-246-567。營業時間 10:30–20:00，週四公休。 苗栗 三義 客家菜 土雞 麵館 交流道附近 美食餐廳 待安排 彭湃客家土雞麵館 [google maps] 原始貼文（岳食客）">
+        <div class="chead">
+          <h3>彭湃客家土雞麵館（苗栗三義）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>苗栗三義的客家土雞麵館，距離三義交流道約3分鐘車程。</li><li>雞肉主打用山泉水熬煮，肉質很嫩，建議點雙色拼盤。</li><li>用餐區分成兩個店面，座位多、空間大，但人潮也很滿。</li><li>必點：雞肉切盤、干貝土雞肉絲麵加滷蛋。</li><li>滷味很強，尤其大腸頭滷得很香。</li><li>戰斧大骨湯很浮誇，直接給一大根。</li><li>爆蛋小卷是老闆跟船釣朋友另外買的母小卷，裡面滿滿的蛋。</li><li>地址：367苗栗縣三義鄉勝興村水美街86號，電話 0958-246-567。</li><li>營業時間 10:30–20:00，週四公休。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%8B%97%E6%A0%97%E7%B8%A3%E4%B8%89%E7%BE%A9%E9%84%89%E5%8B%9D%E8%88%88%E6%9D%91%E6%B0%B4%E7%BE%8E%E8%A1%9786%E8%99%9F%20%E5%BD%AD%E6%B9%83%E5%AE%A2%E5%AE%B6%E5%9C%9F%E9%9B%9E%E9%BA%B5%E9%A4%A8" target="_blank" rel="noopener">彭湃客家土雞麵館  📍</a><a class="lk" href="https://www.facebook.com/share/r/1Lmtcz383J/" target="_blank" rel="noopener">原始貼文（岳食客）  ↗</a></div>
+        <div class="tags"><span class="tag">苗栗</span><span class="tag">三義</span><span class="tag">客家菜</span><span class="tag">土雞</span><span class="tag">麵館</span><span class="tag">交流道附近</span></div>
+        <div class="date">收錄 2026/9/4</div>
+      </article>
+      <article class="card" data-s="呀屋火鍋（桃園大有商圈，串烤火鍋吃到飽） 桃園大有商圈的高cp值火鍋吃到飽，google 評價 4.8 星。主打 $749 火鍋自助吧吃到飽，加價 $79 可現點串燒無限放題。60 多種生鮮食材、飲品、柏克金生啤酒與手作甜點都無限享用。冷藏區有 9 種肉品無限供應，包含櫻桃鴨、安格斯霜降牛、板腱牛、沙朗牛。湯頭首推招牌酸菜白肉鍋，順口解膩；泰式冬蔭椰奶微辣酸甜，煮肉片或海鮮都適合。地址：桃園市桃園區大有路446號，電話 03-325-5585。營業時間週一至週五 11:00-15:00、17:00-23:00；週六日 11:00-23:00，最晚收客 21:00。需加收 10% 清潔服務費，提供電話與線上訂位，建議提早訂。 桃園 火鍋 吃到飽 串燒 聚餐 美食餐廳 待安排 呀屋火鍋 [google maps] 原始貼文（柏食客/zen）">
+        <div class="chead">
+          <h3>呀屋火鍋（桃園大有商圈，串烤火鍋吃到飽）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>桃園大有商圈的高CP值火鍋吃到飽，Google 評價 4.8 星。</li><li>主打 $749 火鍋自助吧吃到飽，加價 $79 可現點串燒無限放題。</li><li>60 多種生鮮食材、飲品、柏克金生啤酒與手作甜點都無限享用。</li><li>冷藏區有 9 種肉品無限供應，包含櫻桃鴨、安格斯霜降牛、板腱牛、沙朗牛。</li><li>湯頭首推招牌酸菜白肉鍋，順口解膩；</li><li>泰式冬蔭椰奶微辣酸甜，煮肉片或海鮮都適合。</li><li>地址：桃園市桃園區大有路446號，電話 03-325-5585。</li><li>營業時間週一至週五 11:00-15:00、17:00-23:00；</li><li>週六日 11:00-23:00，最晚收客 21:00。</li><li>需加收 10% 清潔服務費，提供電話與線上訂位，建議提早訂。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A1%83%E5%9C%92%E5%B8%82%E6%A1%83%E5%9C%92%E5%8D%80%E5%A4%A7%E6%9C%89%E8%B7%AF446%E8%99%9F%20%E5%91%80%E5%B1%8B%E7%81%AB%E9%8D%8B" target="_blank" rel="noopener">呀屋火鍋  📍</a><a class="lk" href="https://www.facebook.com/share/r/1F2AF56cVX/" target="_blank" rel="noopener">原始貼文（柏食客/zen）  ↗</a></div>
+        <div class="tags"><span class="tag">桃園</span><span class="tag">火鍋</span><span class="tag">吃到飽</span><span class="tag">串燒</span><span class="tag">聚餐</span></div>
+        <div class="date">收錄 2026/9/5</div>
+      </article>
+      <article class="card" data-s="一龍鮮湯包店 華興店（竹北，新開幕二店） 竹北高鐵區人氣湯包店在華興街開的二店，新開幕。湯包 6 顆 $85、4 顆 $65；蛋花貢丸湯 $45。湯包現點現做，小心爆汁。醬料區的蔥花薑絲無限供應，可以加爆。內用區比高鐵區店更寬敞舒適。地址：新竹縣竹北市新國里華興街180號，電話 0905-503-197。營業時間 6:00-13:30，週一公休。 新竹 竹北 湯包 早餐 小吃 新開幕 美食餐廳 待安排 一龍鮮湯包店 華興店 [google maps] 原始貼文（jack_food_diary）">
+        <div class="chead">
+          <h3>一龍鮮湯包店 華興店（竹北，新開幕二店）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>竹北高鐵區人氣湯包店在華興街開的二店，新開幕。</li><li>湯包 6 顆 $85、4 顆 $65；</li><li>蛋花貢丸湯 $45。</li><li>湯包現點現做，小心爆汁。</li><li>醬料區的蔥花薑絲無限供應，可以加爆。</li><li>內用區比高鐵區店更寬敞舒適。</li><li>地址：新竹縣竹北市新國里華興街180號，電話 0905-503-197。</li><li>營業時間 6:00-13:30，週一公休。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E7%AB%B9%E7%B8%A3%E7%AB%B9%E5%8C%97%E5%B8%82%E8%8F%AF%E8%88%88%E8%A1%97180%E8%99%9F%20%E4%B8%80%E9%BE%8D%E9%AE%AE%E6%B9%AF%E5%8C%85" target="_blank" rel="noopener">一龍鮮湯包店 華興店  📍</a><a class="lk" href="https://www.facebook.com/share/r/1JyiKn7d3C/" target="_blank" rel="noopener">原始貼文（jack_food_diary）  ↗</a></div>
+        <div class="tags"><span class="tag">新竹</span><span class="tag">竹北</span><span class="tag">湯包</span><span class="tag">早餐</span><span class="tag">小吃</span><span class="tag">新開幕</span></div>
+        <div class="date">收錄 2026/9/14</div>
+      </article>
+      <article class="card" data-s="莯禾府鐵板燒（竹北縣政十一街） 竹北巷弄裡的高cp值鐵板燒。肉品套餐 $240 起；單人豪華海陸套餐 $500 起，含海鮮、蛋、炒青菜（青菜無限續）。湯品、白飯、飲料、冰淇淋都吃到飽。雙人海陸套餐 $1500～$1800，可吃到 a5 和牛、干貝、鐵板鮮蝦與整尾午仔魚。9 月底前點雙人海陸套餐招待清蒸龍蝦身一份。海鮮很新鮮，蝦子會幫忙去殼。地址：新竹縣竹北市縣政十一街99號1樓。營業時間 11:30-14:00、17:00-21:00，最後收客 13:30 與 20:30。注意：不提供訂位需現場候位、僅收現金不能刷卡、用餐時間限 50 分鐘。 新竹 竹北 鐵板燒 和牛 海陸 只收現金 美食餐廳 待安排 莯禾府鐵板燒 [google maps] 原始貼文（weiの食旅攝影日記）">
+        <div class="chead">
+          <h3>莯禾府鐵板燒（竹北縣政十一街）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>竹北巷弄裡的高CP值鐵板燒。</li><li>肉品套餐 $240 起；</li><li>單人豪華海陸套餐 $500 起，含海鮮、蛋、炒青菜（青菜無限續）。</li><li>湯品、白飯、飲料、冰淇淋都吃到飽。</li><li>雙人海陸套餐 $1500～$1800，可吃到 A5 和牛、干貝、鐵板鮮蝦與整尾午仔魚。</li><li>9 月底前點雙人海陸套餐招待清蒸龍蝦身一份。</li><li>海鮮很新鮮，蝦子會幫忙去殼。</li><li>地址：新竹縣竹北市縣政十一街99號1樓。</li><li>營業時間 11:30-14:00、17:00-21:00，最後收客 13:30 與 20:30。</li><li>注意：不提供訂位需現場候位、僅收現金不能刷卡、用餐時間限 50 分鐘。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E7%AB%B9%E7%B8%A3%E7%AB%B9%E5%8C%97%E5%B8%82%E7%B8%A3%E6%94%BF%E5%8D%81%E4%B8%80%E8%A1%9799%E8%99%9F%20%E8%8E%AF%E7%A6%BE%E5%BA%9C%E9%90%B5%E6%9D%BF%E7%87%92" target="_blank" rel="noopener">莯禾府鐵板燒  📍</a><a class="lk" href="https://www.facebook.com/share/r/1McAJ1bdvE/" target="_blank" rel="noopener">原始貼文（Weiの食旅攝影日記）  ↗</a></div>
+        <div class="tags"><span class="tag">新竹</span><span class="tag">竹北</span><span class="tag">鐵板燒</span><span class="tag">和牛</span><span class="tag">海陸</span><span class="tag">只收現金</span></div>
+        <div class="date">收錄 2026/9/14</div>
+      </article>
+      <article class="card" data-s="ススキノデパート（札幌薄野海鮮吃到飽・整隻螃蟹） 札幌薄野的海鮮吃到飽，最大賣點是北海道紋別產的大ズワイ蟹可以一整隻夾回座位。海鮮、壽司、生魚片、燒肉、成吉思汗烤肉都在同一場，海鮮也能拿回座位自己烤。每週一、五有現場鮪魚解體秀，師傅當場切開整條鮪魚，現切現夾。吃到飽有計時，入座後桌上放計時器，時間一到就結束，建議先衝螃蟹。90 分鐘方案：平日 ¥7,800、週末假日 ¥8,900。120 分鐘方案：平日 ¥8,800、週末假日 ¥9,900。小學生 ¥3,000、3～5 歲 ¥2,000、未滿 3 歲免費。加購：毛蟹、花咲蟹、イバラ蟹吃到飽 +¥4,400；酒水飲料＋冰淇淋（含哈根達斯）+¥1,650。官網特別方案：1 週年紀念 ¥7,300（90 分鐘，17:30 前入店，週一五除外）、鮪魚解體秀特別方案 ¥8,800（限週一五，17:30 前入店），期間限定去前要再確認。地址：札幌市中央區南5條西2丁目2 サイバーシティビル 2f。交通：地下鐵東豐線「豐水薄野站」4 號出口步行 1 分鐘。營業時間 16:45～22:00（最後入店 20:30），不定休，電話 011-206-4175，官網可 24 小時線上預約。價格以官網最新公告為準（2026 年 9 月確認）。 日本 北海道 札幌 薄野 吃到飽 螃蟹 海鮮 親子 美食餐廳 待安排 ススキノデパート [google maps] 原始貼文（北海道旅遊-夢醬在哪裡）">
+        <div class="chead">
+          <h3>ススキノデパート（札幌薄野海鮮吃到飽・整隻螃蟹）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>札幌薄野的海鮮吃到飽，最大賣點是北海道紋別產的大ズワイ蟹可以一整隻夾回座位。</li><li>海鮮、壽司、生魚片、燒肉、成吉思汗烤肉都在同一場，海鮮也能拿回座位自己烤。</li><li>每週一、五有現場鮪魚解體秀，師傅當場切開整條鮪魚，現切現夾。</li><li>吃到飽有計時，入座後桌上放計時器，時間一到就結束，建議先衝螃蟹。</li><li>90 分鐘方案：平日 ¥7,800、週末假日 ¥8,900。</li><li>120 分鐘方案：平日 ¥8,800、週末假日 ¥9,900。</li><li>小學生 ¥3,000、3～5 歲 ¥2,000、未滿 3 歲免費。</li><li>加購：毛蟹、花咲蟹、イバラ蟹吃到飽 +¥4,400；</li><li>酒水飲料＋冰淇淋（含哈根達斯）+¥1,650。</li><li>官網特別方案：1 週年紀念 ¥7,300（90 分鐘，17:30 前入店，週一五除外）、鮪魚解體秀特別方案 ¥8,800（限週一五，17:30 前入店），期間限定去前要再確認。</li><li>地址：札幌市中央區南5條西2丁目2 サイバーシティビル 2F。</li><li>交通：地下鐵東豐線「豐水薄野站」4 號出口步行 1 分鐘。</li><li>營業時間 16:45～22:00（最後入店 20:30），不定休，電話 011-206-4175，官網可 24 小時線上預約。</li><li>價格以官網最新公告為準（2026 年 9 月確認）。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9C%AD%E5%B9%8C%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%8D%975%E6%9D%A1%E8%A5%BF2%E4%B8%81%E7%9B%AE2%20%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%82%B7%E3%83%86%E3%82%A3%E3%83%93%E3%83%AB%202F%20%E3%82%B9%E3%82%B9%E3%82%AD%E3%83%8E%E3%83%87%E3%83%91%E3%83%BC%E3%83%88" target="_blank" rel="noopener">ススキノデパート  📍</a><a class="lk" href="https://www.facebook.com/share/r/1bn5hphtQK/" target="_blank" rel="noopener">原始貼文（北海道旅遊-夢醬在哪裡）  ↗</a></div>
+        <div class="tags"><span class="tag">日本</span><span class="tag">北海道</span><span class="tag">札幌</span><span class="tag">薄野</span><span class="tag">吃到飽</span><span class="tag">螃蟹</span><span class="tag">海鮮</span><span class="tag">親子</span></div>
+        <div class="date">收錄 2026/9/29</div>
+      </article></div>
+  </section>
+  <section class="block" data-cat="學習知識" style="--accent:#8a6d1f">
+    <h2><span class="ico">📚</span>學習知識<span class="count">5</span></h2>
+    <div class="cards">
+      <article class="card" data-s="iphone 手持拍煙火的設定（紀映光） 用 iphone 手持就能拍出漂亮煙火，不需要腳架。設定：曝光度 -1、夜景模式開到最大、檔案格式 raw、濾鏡選鮮豔。等煙火綻放的瞬間按下快門，手盡量穩住到快門結束。作者以 iphone 17 pro max 在日本長岡花火大會實拍。 攝影 iphone 煙火 技巧 夜景 學習知識 待安排 原始貼文">
+        <div class="chead">
+          <h3>iPhone 手持拍煙火的設定（紀映光）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>用 iPhone 手持就能拍出漂亮煙火，不需要腳架。</li><li>設定：曝光度 -1、夜景模式開到最大、檔案格式 RAW、濾鏡選鮮豔。</li><li>等煙火綻放的瞬間按下快門，手盡量穩住到快門結束。</li><li>作者以 iPhone 17 Pro Max 在日本長岡花火大會實拍。</li></ul>
+        <div class="links"><a class="lk" href="https://www.facebook.com/share/p/18Q2wCewGp/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">攝影</span><span class="tag">iPhone</span><span class="tag">煙火</span><span class="tag">技巧</span><span class="tag">夜景</span></div>
+        <div class="date">收錄 2026/8/11</div>
+      </article>
+      <article class="card" data-s="iphone 拍銀河與流星的設定（紀映光） 用 iphone 也能拍出銀河和流星，作者在合歡山武嶺（海拔3275公尺）實拍。1. 要在沒有光害的地方拍攝，月亮也算光害，中部首選合歡山。2. 手機一定要架在單眼腳架上，手持沒辦法開啟30秒曝光模式。3. 開啟夜拍模式並把時間調到最長。4. 靜置手機1～2秒，手機會自動開啟30秒模式。5. 按下快門，可開啟自拍倒數避免手震。6. 等待30秒即完成。7. 事後到 lightroom 增加清晰度、去朦朧。8. 流星常是拍完才發現有入鏡，建議多拍幾張增加命中率。拍攝器材為 iphone 16 pro max，時間點是英仙座流星雨爆發期。 攝影 iphone 銀河 流星 夜拍 合歡山 學習知識 待安排 拍攝地點：合歡山武嶺 [google maps] 原始貼文">
+        <div class="chead">
+          <h3>iPhone 拍銀河與流星的設定（紀映光）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>用 iPhone 也能拍出銀河和流星，作者在合歡山武嶺（海拔3275公尺）實拍。</li><li>1. 要在沒有光害的地方拍攝，月亮也算光害，中部首選合歡山。</li><li>2. 手機一定要架在單眼腳架上，手持沒辦法開啟30秒曝光模式。</li><li>3. 開啟夜拍模式並把時間調到最長。</li><li>4. 靜置手機1～2秒，手機會自動開啟30秒模式。</li><li>5. 按下快門，可開啟自拍倒數避免手震。</li><li>6. 等待30秒即完成。</li><li>7. 事後到 Lightroom 增加清晰度、去朦朧。</li><li>8. 流星常是拍完才發現有入鏡，建議多拍幾張增加命中率。</li><li>拍攝器材為 iPhone 16 Pro Max，時間點是英仙座流星雨爆發期。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%90%88%E6%AD%A1%E5%B1%B1%E6%AD%A6%E5%B6%BA" target="_blank" rel="noopener">拍攝地點：合歡山武嶺  📍</a><a class="lk" href="https://www.facebook.com/share/1DSFXTxFUG/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">攝影</span><span class="tag">iPhone</span><span class="tag">銀河</span><span class="tag">流星</span><span class="tag">夜拍</span><span class="tag">合歡山</span></div>
+        <div class="date">收錄 2026/8/12</div>
+      </article>
+      <article class="card" data-s="anthropic 官方 17 個 claude skills 整理（數位時代／未來商務） skill 是資料夾形式的指令包，claude 載入後能用更穩定的方式完成特定工作，不必每次重新給脈絡。官方在 github 公開 17 個 skill，免費開源，分成文件製作、設計品牌、工程開發、溝通內容四類再加一個 meta skill。文件製作類：pdf、docx、xlsx、pptx，可串成「pdf擷取→excel分析→word報告→ppt簡報」完整流程。設計品牌類：brand-guidelines、canvas-design、theme-factory、algorithmic-art。工程開發類：claude-api、mcp-builder、frontend-design、web-artifacts-builder、webapp-testing。溝通內容類：doc-coauthoring、internal-comms、slack-gif-creator。meta skill：skill-creator，會引導你寫出符合官方格式的自訂 skill，特別強調 description 措辭是能否正確觸發的關鍵。claude.ai 免費版也能用，但要先啟用 code execution and file creation，並以 zip 上傳下載來的 skill；付費版可直接在 skill 資料庫安裝。安裝建議：商務用戶裝 pdf+docx+xlsx+pptx，內容品牌類裝 brand-guidelines+canvas-design+doc-coauthoring，工程師裝 claude-api+mcp-builder+frontend-design+webapp-testing。重要提醒：skill 不是裝越多越好，功能相近會產生觸發競爭導致誤觸發，建議只留符合自己情境的 5 到 8 個。 ai claude skills 工作術 工具 自動化 學習知識 待安排 原始文章 anthropic skills github">
+        <div class="chead">
+          <h3>Anthropic 官方 17 個 Claude Skills 整理（數位時代／未來商務）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>Skill 是資料夾形式的指令包，Claude 載入後能用更穩定的方式完成特定工作，不必每次重新給脈絡。</li><li>官方在 GitHub 公開 17 個 Skill，免費開源，分成文件製作、設計品牌、工程開發、溝通內容四類再加一個 Meta Skill。</li><li>文件製作類：pdf、docx、xlsx、pptx，可串成「PDF擷取→Excel分析→Word報告→PPT簡報」完整流程。</li><li>設計品牌類：brand-guidelines、canvas-design、theme-factory、algorithmic-art。</li><li>工程開發類：claude-api、mcp-builder、frontend-design、web-artifacts-builder、webapp-testing。</li><li>溝通內容類：doc-coauthoring、internal-comms、slack-gif-creator。</li><li>Meta Skill：skill-creator，會引導你寫出符合官方格式的自訂 Skill，特別強調 description 措辭是能否正確觸發的關鍵。</li><li>claude.ai 免費版也能用，但要先啟用 Code execution and file creation，並以 ZIP 上傳下載來的 Skill；</li><li>付費版可直接在 Skill 資料庫安裝。</li><li>安裝建議：商務用戶裝 pdf+docx+xlsx+pptx，內容品牌類裝 brand-guidelines+canvas-design+doc-coauthoring，工程師裝 claude-api+mcp-builder+frontend-design+webapp-testing。</li><li>重要提醒：Skill 不是裝越多越好，功能相近會產生觸發競爭導致誤觸發，建議只留符合自己情境的 5 到 8 個。</li></ul>
+        <div class="links"><a class="lk" href="https://www.bnext.com.tw/article/91307/anthropic-17-claude-skills-" target="_blank" rel="noopener">原始文章  ↗</a><a class="lk" href="https://github.com/anthropics/skills" target="_blank" rel="noopener">Anthropic Skills GitHub  ↗</a></div>
+        <div class="tags"><span class="tag">AI</span><span class="tag">Claude</span><span class="tag">Skills</span><span class="tag">工作術</span><span class="tag">工具</span><span class="tag">自動化</span></div>
+        <div class="date">收錄 2026/8/15</div>
+      </article>
+      <article class="card" data-s="心血管風險評估：framingham 分數與血脂指標（雲舟診所衛教） 一篇關於心肌梗塞預防與心血管風險評估的衛教整理。心肌梗塞多與冠狀動脈粥樣硬化有關，是長時間累積的結果。症狀不一定是劇烈胸痛，也可能是胸悶、壓迫感、呼吸困難、冒冷汗、噁心、頭暈或異常疲倦，不適也可能延伸到手臂、肩膀、背部、頸部或下巴。若懷疑心肌梗塞應立即撥打 119。第一步是 framingham risk score，綜合性別、年齡、血壓、是否降血壓治療、吸菸、糖尿病、hdl 與總膽固醇，估算未來 10 年心血管事件風險。重點在於同樣的膽固醇數值，搭配不同年齡與危險因子，整體風險可能差很多。第二步是血脂不能只看 ldl-c：apob 反映致動脈粥樣硬化的顆粒數量、apoa1 是 hdl 的主要蛋白、lp(a) 主要受遺傳影響。即使 ldl-c 正常，lp(a) 偏高仍可能增加風險，建議成年人一生至少測一次 lp(a)。文章結論：重點不是問膽固醇是否正常，而是整體心血管風險有多少。貼文由雲舟診所發布（新竹市心臟專科），地址新竹市東區慈雲路53號，電話 03-6686006。 健康 心血管 健檢 衛教 新竹 診所 學習知識 待安排 雲舟診所（新竹心臟專科）[google maps] 原始貼文">
+        <div class="chead">
+          <h3>心血管風險評估：Framingham 分數與血脂指標（雲舟診所衛教）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>一篇關於心肌梗塞預防與心血管風險評估的衛教整理。</li><li>心肌梗塞多與冠狀動脈粥樣硬化有關，是長時間累積的結果。</li><li>症狀不一定是劇烈胸痛，也可能是胸悶、壓迫感、呼吸困難、冒冷汗、噁心、頭暈或異常疲倦，不適也可能延伸到手臂、肩膀、背部、頸部或下巴。</li><li>若懷疑心肌梗塞應立即撥打 119。</li><li>第一步是 Framingham Risk Score，綜合性別、年齡、血壓、是否降血壓治療、吸菸、糖尿病、HDL 與總膽固醇，估算未來 10 年心血管事件風險。</li><li>重點在於同樣的膽固醇數值，搭配不同年齡與危險因子，整體風險可能差很多。</li><li>第二步是血脂不能只看 LDL-C：ApoB 反映致動脈粥樣硬化的顆粒數量、ApoA1 是 HDL 的主要蛋白、Lp(a) 主要受遺傳影響。</li><li>即使 LDL-C 正常，Lp(a) 偏高仍可能增加風險，建議成年人一生至少測一次 Lp(a)。</li><li>文章結論：重點不是問膽固醇是否正常，而是整體心血管風險有多少。</li><li>貼文由雲舟診所發布（新竹市心臟專科），地址新竹市東區慈雲路53號，電話 03-6686006。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E7%AB%B9%E5%B8%82%E6%9D%B1%E5%8D%80%E6%85%88%E9%9B%B2%E8%B7%AF53%E8%99%9F%20%E9%9B%B2%E8%88%9F%E8%A8%BA%E6%89%80" target="_blank" rel="noopener">雲舟診所（新竹心臟專科）[Google Maps]  📍</a><a class="lk" href="https://www.facebook.com/share/p/18Q8Nsrve9/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">健康</span><span class="tag">心血管</span><span class="tag">健檢</span><span class="tag">衛教</span><span class="tag">新竹</span><span class="tag">診所</span></div>
+        <div class="date">收錄 2026/9/16</div>
+      </article>
+      <article class="card" data-s="心律不整誘發型心肌病變：成因、症狀與檢查（雲舟診所衛教） 心律不整誘發型心肌病變（tachycardia-induced cardiomyopathy）指心臟長時間跳太快、太亂，長期高負荷下可能造成心肌收縮功能下降與心臟擴大，嚴重時引起心臟衰竭。特色是若能及早找出原因並控制心律，心臟功能有機會逐漸改善。常見成因：心房顫動（af）、陣發性上心室頻脈（psvt）、心室頻脈（vt）、頻繁心室早期收縮（pvc）。其他因素如甲狀腺功能亢進、嚴重貧血，也可能讓心跳長時間加快。可能症狀：心悸或心跳不規則、容易疲倦、活動後喘、頭暈或昏厥、躺下比較喘或夜間喘醒、下肢水腫、短時間體重明顯增加。有些人早期沒有明顯症狀。常見檢查：心電圖看當下心律、24 小時心電圖找偶發性心悸與 pvc、心臟超音波看心臟大小與收縮功能、抽血檢查血球與甲狀腺功能及電解質。貼文由雲舟診所發布，地址新竹市東區慈雲路53號，電話 03-6686006。 健康 心臟 心律不整 衛教 檢查 新竹 診所 學習知識 待安排 雲舟診所（新竹心臟專科）[google maps] 原始貼文">
+        <div class="chead">
+          <h3>心律不整誘發型心肌病變：成因、症狀與檢查（雲舟診所衛教）</h3>
+          <span class="status todo">待安排</span>
+        </div>
+        <ul class='sum'><li>心律不整誘發型心肌病變（Tachycardia-induced Cardiomyopathy）指心臟長時間跳太快、太亂，長期高負荷下可能造成心肌收縮功能下降與心臟擴大，嚴重時引起心臟衰竭。</li><li>特色是若能及早找出原因並控制心律，心臟功能有機會逐漸改善。</li><li>常見成因：心房顫動（AF）、陣發性上心室頻脈（PSVT）、心室頻脈（VT）、頻繁心室早期收縮（PVC）。</li><li>其他因素如甲狀腺功能亢進、嚴重貧血，也可能讓心跳長時間加快。</li><li>可能症狀：心悸或心跳不規則、容易疲倦、活動後喘、頭暈或昏厥、躺下比較喘或夜間喘醒、下肢水腫、短時間體重明顯增加。</li><li>有些人早期沒有明顯症狀。</li><li>常見檢查：心電圖看當下心律、24 小時心電圖找偶發性心悸與 PVC、心臟超音波看心臟大小與收縮功能、抽血檢查血球與甲狀腺功能及電解質。</li><li>貼文由雲舟診所發布，地址新竹市東區慈雲路53號，電話 03-6686006。</li></ul>
+        <div class="links"><a class="lk map" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E7%AB%B9%E5%B8%82%E6%9D%B1%E5%8D%80%E6%85%88%E9%9B%B2%E8%B7%AF53%E8%99%9F%20%E9%9B%B2%E8%88%9F%E8%A8%BA%E6%89%80" target="_blank" rel="noopener">雲舟診所（新竹心臟專科）[Google Maps]  📍</a><a class="lk" href="https://www.facebook.com/share/p/19nXtkw5Yq/" target="_blank" rel="noopener">原始貼文  ↗</a></div>
+        <div class="tags"><span class="tag">健康</span><span class="tag">心臟</span><span class="tag">心律不整</span><span class="tag">衛教</span><span class="tag">檢查</span><span class="tag">新竹</span><span class="tag">診所</span></div>
+        <div class="date">收錄 2026/10/2</div>
+      </article></div>
+  </section>
+<div class="empty" id="empty">找不到符合的收藏，換個關鍵字試試。</div>
+<footer>由 Google Drive「生活收藏總表 · 待整理」整理產生　·　狀態為 Done 的項目僅保留在 Excel</footer>
+</div>
+<script>
+const TOTAL = 14;
+const q = document.getElementById('q'), clr = document.getElementById('clr'),
+      hits = document.getElementById('hits'), empty = document.getElementById('empty');
+let cat = 'all';
+function clearMarks(el){
+  el.querySelectorAll('mark').forEach(m => {
+    const t = document.createTextNode(m.textContent);
+    m.parentNode.replaceChild(t, m);
+  });
+  el.normalize();
+}
+function markIn(el, term){
+  if(!term) return;
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+  const targets = [];
+  while(walker.nextNode()){
+    const n = walker.currentNode;
+    if(n.nodeValue.toLowerCase().includes(term)) targets.push(n);
+  }
+  targets.forEach(n => {
+    const frag = document.createDocumentFragment();
+    let s = n.nodeValue, i, low = s.toLowerCase();
+    while((i = low.indexOf(term)) !== -1){
+      if(i) frag.appendChild(document.createTextNode(s.slice(0,i)));
+      const m = document.createElement('mark');
+      m.textContent = s.slice(i, i+term.length);
+      frag.appendChild(m);
+      s = s.slice(i+term.length); low = s.toLowerCase();
+    }
+    if(s) frag.appendChild(document.createTextNode(s));
+    n.parentNode.replaceChild(frag, n);
+  });
+}
+function apply(){
+  const term = q.value.trim().toLowerCase();
+  clr.style.display = term ? 'block' : 'none';
+  let shown = 0;
+  document.querySelectorAll('.block').forEach(sec => {
+    const catOk = (cat === 'all' || sec.dataset.cat === cat);
+    let n = 0;
+    sec.querySelectorAll('.card').forEach(card => {
+      clearMarks(card);
+      const ok = catOk && (!term || card.dataset.s.includes(term));
+      card.style.display = ok ? '' : 'none';
+      if(ok){ n++; if(term) markIn(card, term); }
+    });
+    sec.style.display = n ? '' : 'none';
+    sec.querySelector('.count').textContent = n;
+    shown += n;
+  });
+  empty.style.display = shown ? 'none' : 'block';
+  hits.textContent = (term || cat !== 'all') ? `顯示 ${shown} / ${TOTAL} 筆` : '';
+}
+q.addEventListener('input', apply);
+clr.onclick = () => { q.value = ''; q.focus(); apply(); };
+document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.filters button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on'); cat = b.dataset.f; apply();
+});
+document.addEventListener('click', ev => {
+  const t = ev.target.closest('.tag');
+  if(t){ q.value = t.textContent; apply(); window.scrollTo({top:0, behavior:'smooth'}); }
+});
+document.addEventListener('keydown', ev => {
+  if(ev.key === '/' && document.activeElement !== q){ ev.preventDefault(); q.focus(); }
+  if(ev.key === 'Escape' && document.activeElement === q){ q.value=''; apply(); }
+});
+apply();
+</script></body></html>
