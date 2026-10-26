@@ -102,7 +102,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .back:hover{color:var(--gc);border-color:var(--gc)}
 .back svg{width:12px;height:12px;flex:none}
 .thumb{width:150px;height:auto;border-radius:10px;background:#000;display:block}
-.law-main{min-width:0;display:grid;gap:12px;align-content:start}
+.law-main{min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-content:start}
+.law-main>*{min-width:0}
 .law-head{display:flex;gap:14px;align-items:center}
 .letter{font-family:var(--f-en);font-weight:600;font-size:40px;line-height:1;color:var(--gc);width:40px;text-align:center}
 .law[data-g="0"]{--gc:var(--g0)} .law[data-g="1"]{--gc:var(--g1)} .law[data-g="2"]{--gc:var(--g2)}
@@ -155,6 +156,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
   .letter{font-size:34px;width:32px}
   .law-title h3{font-size:21px}
   .tab-en{display:none}
+  .eq{font-size:14px;padding:4px 10px}
   :root{--bar-h:118px}
 }
 
@@ -167,6 +169,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 .play-hint{position:absolute;inset:auto 50% 50% auto;transform:translate(50%,50%);width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.6);border:2px solid #fff;display:grid;place-items:center;pointer-events:none}
 .play-hint svg{width:24px;height:24px;margin-left:4px}
 .law-side{align-items:flex-end}
+.eq{font-size:14px;padding:4px 10px}
 </style>
 </head>
 <body>
@@ -260,7 +263,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <li>浮力 &lt; 重量 → 下沉</li>
 </ul></div><div role="tabpanel" class="panel lv-h" id="p-A-h" aria-labelledby="t-A-h" hidden><h4>浮力從哪裡來？</h4>
 <p>液體壓力隨深度增加：\(P = \rho g h\)。物體下表面比上表面深，受到的壓力比較大，上下壓力差就是浮力：</p>
-<div class="eq">\[F_B = \Delta P \cdot A = \rho_{\text{液}}\, g\, \Delta h\, A = \rho_{\text{液}}\, g\, V_{\text{排}}\]</div>
+<div class="eq">\[\begin{aligned}F_B &amp;= \Delta P \cdot A \\ &amp;= \rho_{\text{液}}\, g\, \Delta h\, A \\ &amp;= \rho_{\text{液}}\, g\, V_{\text{排}}\end{aligned}\]</div>
 <h4>漂浮物體露出多少？</h4>
 <p>漂浮時浮力 = 重力：\(\rho_{\text{物}} V = \rho_{\text{液}} V_{\text{浸}}\)，所以浸入比例 \(= \rho_{\text{物}}/\rho_{\text{液}}\)。</p>
 <p>冰的密度約 0.917 g/cm³、海水約 1.025 g/cm³，冰山約 89% 藏在水面下，這就是「冰山一角」。</p>
@@ -274,7 +277,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <div class="eq">\[F_b = \rho_f\, g\, V_{\text{disp}}\]</div>
 <h4>Derivation</h4>
 <p>From hydrostatics, \(\nabla p = \rho_f \mathbf{g}\). The net pressure force on a closed surface is</p>
-<div class="eq">\[\mathbf{F}_b = -\oint_S p\,\hat{\mathbf n}\,dA = -\int_V \nabla p\,dV = -\rho_f\,\mathbf g\,V\]</div>
+<div class="eq">\[\begin{aligned}\mathbf{F}_b &amp;= -\oint_S p\,\hat{\mathbf n}\,dA \\ &amp;= -\int_V \nabla p\,dV \\ &amp;= -\rho_f\,\mathbf g\,V\end{aligned}\]</div>
 <p>using the divergence (gradient) theorem.</p>
 <h4>Applications</h4>
 <ul>
@@ -319,7 +322,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <p>三項分別是壓力、單位體積的動能、單位體積的重力位能。所以這其實是流體版的能量守恆。</p>
 <h4>例題：托里切利定律</h4>
 <p>水槽水面下 5 m 處開小孔，水噴出速度：</p>
-<div class="eq">\[v = \sqrt{2gh} = \sqrt{2 \times 10 \times 5} = 10 \ \text{m/s}\]</div>
+<div class="eq">\[\begin{aligned}v &amp;= \sqrt{2gh} \\ &amp;= \sqrt{2 \times 10 \times 5} \\ &amp;= 10 \ \text{m/s}\end{aligned}\]</div>
 <p>和物體從 5 m 高自由落下的速度一樣。</p>
 <h4>應用</h4>
 <ul>
@@ -331,8 +334,9 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <div class="eq">\[p + \tfrac12\rho v^2 + \rho g z = \text{const.}\]</div>
 <p>It follows from integrating Euler's equation along a streamline, or from the work–energy theorem applied to a fluid parcel. Continuity gives \(A_1 v_1 = A_2 v_2\).</p>
 <h4>Useful results</h4>
-<div class="eq">\[\text{Venturi meter: } Q = A_1 A_2\sqrt{\frac{2\Delta p}{\rho\,(A_1^2 - A_2^2)}}\]</div>
-<div class="eq">\[\text{Pitot tube: } v = \sqrt{2(p_0 - p)/\rho}\]</div>
+<p>Venturi meter and Pitot tube:</p>
+<div class="eq">\[Q = A_1 A_2\sqrt{\frac{2\Delta p}{\rho\,(A_1^2 - A_2^2)}}\]</div>
+<div class="eq">\[v = \sqrt{2(p_0 - p)/\rho}\]</div>
 <h4>Applications</h4>
 <ul>
 <li>Airspeed indicators, carburetors, atomizers, flow metering in pipelines.</li>
@@ -364,7 +368,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 </ul>
 <p class="note try"><b>動手想一想</b>試試看：把兩顆氣球都在頭髮上摩擦，再用線吊起來靠近，它們會互相躲開，因為帶的是一樣的電。</p></div><div role="tabpanel" class="panel lv-j" id="p-C-j" aria-labelledby="t-C-j" hidden><h4>定義</h4>
 <p>兩個帶電物體之間的靜電力，與兩者電量的乘積成正比，與距離的平方成反比。</p>
-<div class="eq">\[F = k\,\frac{q_1 q_2}{r^2}, \quad k \approx 9\times10^{9}\ \text{N·m}^2/\text{C}^2\]</div>
+<div class="eq">\[F = k\,\frac{q_1 q_2}{r^2}\]\[k \approx 9\times10^{9}\ \text{N·m}^2/\text{C}^2\]</div>
 <h4>規則</h4>
 <ul>
 <li>同性電荷相斥，異性電荷相吸。</li>
@@ -374,7 +378,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <h4>摩擦起電</h4>
 <p>摩擦時電子從一個物體跑到另一個物體：得到電子的帶負電，失去電子的帶正電。</p></div><div role="tabpanel" class="panel lv-h" id="p-C-h" aria-labelledby="t-C-h" hidden><h4>例題</h4>
 <p>兩個 1 μC 的點電荷相距 0.1 m：</p>
-<div class="eq">\[F = \frac{9\times10^9 \times (10^{-6})^2}{(0.1)^2} = 0.9\ \text{N}\]</div>
+<div class="eq">\[\begin{aligned}F &amp;= \frac{9\times10^9 \times (10^{-6})^2}{(0.1)^2} \\ &amp;= 0.9\ \text{N}\end{aligned}\]</div>
 <h4>疊加原理</h4>
 <p>多個電荷時，某電荷受的總力 = 各電荷個別作用力的向量和。</p>
 <h4>電力 vs. 重力</h4>
@@ -384,7 +388,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <li>靜電除塵器（工廠煙囪）、靜電噴漆。</li>
 <li>雷射印表機和影印機：用靜電把碳粉吸到紙上。</li>
 </ul></div><div role="tabpanel" class="panel lv-u" id="p-C-u" aria-labelledby="t-C-u" lang="en" hidden><h4>Statement</h4>
-<div class="eq">\[\mathbf F_{12} = \frac{1}{4\pi\varepsilon_0}\,\frac{q_1 q_2}{r^2}\,\hat{\mathbf r}_{12}, \qquad \varepsilon_0 = 8.854\times10^{-12}\ \text{F/m}\]</div>
+<div class="eq">\[\mathbf F_{12} = \frac{1}{4\pi\varepsilon_0}\,\frac{q_1 q_2}{r^2}\,\hat{\mathbf r}_{12}\]\[\varepsilon_0 = 8.854\times10^{-12}\ \text{F/m}\]</div>
 <p>Forces from multiple charges add by superposition. Coulomb's law for static charges is equivalent to Gauss's law \(\nabla\cdot\mathbf E = \rho/\varepsilon_0\) together with \(\nabla\times\mathbf E = 0\).</p>
 <h4>Notes</h4>
 <ul>
@@ -447,7 +451,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <p>For sound in a medium (signs for approach):</p>
 <div class="eq">\[f' = f\,\frac{v + v_o}{v - v_s}\]</div>
 <p>For light, only relative velocity matters (special relativity):</p>
-<div class="eq">\[f' = f\sqrt{\frac{1+\beta}{1-\beta}}, \quad \beta = v/c \ (\text{approaching}), \qquad z = \frac{\Delta\lambda}{\lambda}\]</div>
+<div class="eq">\[f' = f\sqrt{\frac{1+\beta}{1-\beta}}\]\[\beta = v/c \ (\text{approaching})\]\[z = \frac{\Delta\lambda}{\lambda}\]</div>
 <h4>Cosmology</h4>
 <p>Hubble–Lemaître law \(v = H_0 d\). Cosmological redshift is strictly due to the expansion of space, but at low \(z\) it reads like a Doppler shift.</p>
 <h4>Applications</h4>
@@ -491,7 +495,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <h4>磁場對電流的作用</h4>
 <p>通電導線放在磁場中會受力，這就是電動機（馬達）的原理。揚聲器、電鈴也是利用電磁作用。</p></div><div role="tabpanel" class="panel lv-h" id="p-E-h" aria-labelledby="t-E-h" hidden><h4>勞侖茲力</h4>
 <p>帶電粒子在磁場中運動會受力，方向垂直於速度和磁場：</p>
-<div class="eq">\[F = qvB\sin\theta, \qquad F_{\text{導線}} = ILB\sin\theta\]</div>
+<div class="eq">\[F = qvB\sin\theta\]\[F_{\text{導線}} = ILB\sin\theta\]</div>
 <h4>帶電粒子做圓周運動</h4>
 <p>磁力提供向心力：\(qvB = \dfrac{mv^2}{r}\)，所以</p>
 <div class="eq">\[r = \frac{mv}{qB}\]</div>
@@ -502,7 +506,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <li>迴旋加速器、MRI 核磁共振。</li>
 </ul></div><div role="tabpanel" class="panel lv-u" id="p-E-u" aria-labelledby="t-E-u" lang="en" hidden><h4>Overview</h4>
 <p>Electromagnetism is one of the four fundamental interactions, mediated by the photon. Electric and magnetic fields are two aspects of a single field tensor \(F^{\mu\nu}\); what one observer sees as pure \(\mathbf E\) another sees as a mix of \(\mathbf E\) and \(\mathbf B\).</p>
-<div class="eq">\[\mathbf F = q\,(\mathbf E + \mathbf v \times \mathbf B), \qquad \nabla\times\mathbf E = -\frac{\partial \mathbf B}{\partial t}\]</div>
+<div class="eq">\[\mathbf F = q\,(\mathbf E + \mathbf v \times \mathbf B)\]\[\nabla\times\mathbf E = -\frac{\partial \mathbf B}{\partial t}\]</div>
 <h4>Key results</h4>
 <ul>
 <li>Cyclotron frequency \(\omega_c = qB/m\), independent of speed (non-relativistic).</li>
@@ -547,7 +551,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <div class="eq">\[\varepsilon = -N\,\frac{\Delta\Phi}{\Delta t}\]</div>
 <h4>例題</h4>
 <p>100 匝線圈，0.2 s 內磁通量由 0.03 Wb 降到 0.01 Wb：</p>
-<div class="eq">\[|\varepsilon| = 100 \times \frac{0.02}{0.2} = 10\ \text{V}\]</div>
+<div class="eq">\[\begin{aligned}|\varepsilon| &amp;= 100 \times \frac{0.02}{0.2} \\ &amp;= 10\ \text{V}\end{aligned}\]</div>
 <h4>動生電動勢</h4>
 <p>長 \(L\) 的導線以速度 \(v\) 垂直切過磁場 \(B\)：\(\varepsilon = BLv\)。</p>
 <h4>應用</h4>
@@ -556,7 +560,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <li>變壓器：\(\dfrac{V_1}{V_2} = \dfrac{N_1}{N_2}\)</li>
 <li>電磁爐、悠遊卡感應、手機無線充電、地下停車場的車輛感應線圈。</li>
 </ul></div><div role="tabpanel" class="panel lv-u" id="p-F-u" aria-labelledby="t-F-u" lang="en" hidden><h4>Statement</h4>
-<div class="eq">\[\varepsilon = -\frac{d\Phi_B}{dt}, \qquad \Phi_B = \int_S \mathbf B\cdot d\mathbf A\]</div>
+<div class="eq">\[\varepsilon = -\frac{d\Phi_B}{dt}\]\[\Phi_B = \int_S \mathbf B\cdot d\mathbf A\]</div>
 <p>Integral form of the Maxwell–Faraday equation:</p>
 <div class="eq">\[\oint_{\partial S}\mathbf E\cdot d\boldsymbol\ell = -\frac{d}{dt}\int_S \mathbf B\cdot d\mathbf A\]</div>
 <p>The EMF can come from a time-varying \(\mathbf B\) (transformer EMF) or from a moving circuit (motional EMF, \(\mathbf v\times\mathbf B\)).</p>
@@ -611,7 +615,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <li>高壓電線維修工人穿導電衣，在帶電線路上作業。</li>
 <li>平行板電容器的電場 \(E = \sigma/\varepsilon_0\)。</li>
 </ul></div><div role="tabpanel" class="panel lv-u" id="p-G-u" aria-labelledby="t-G-u" lang="en" hidden><h4>Statement</h4>
-<div class="eq">\[\oint_S \mathbf E\cdot d\mathbf A = \frac{Q_{\text{enc}}}{\varepsilon_0} \quad\Longleftrightarrow\quad \nabla\cdot\mathbf E = \frac{\rho}{\varepsilon_0}\]</div>
+<div class="eq">\[\oint_S \mathbf E\cdot d\mathbf A = \frac{Q_{\text{enc}}}{\varepsilon_0}\]\[\Longleftrightarrow\]\[\nabla\cdot\mathbf E = \frac{\rho}{\varepsilon_0}\]</div>
 <p>The two forms are related by the divergence theorem. Gauss's law holds always; it is most useful for computing fields when symmetry (spherical, cylindrical, planar) makes \(|\mathbf E|\) constant on the Gaussian surface.</p>
 <h4>Standard results</h4>
 <ul>
@@ -669,10 +673,12 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 </ul>
 <h4>應用</h4>
 <p>汽車避震器、體重計、地震儀、機械錶的游絲。</p></div><div role="tabpanel" class="panel lv-u" id="p-H-u" aria-labelledby="t-H-u" lang="en" hidden><h4>Statement</h4>
-<div class="eq">\[F = -kx \qquad\text{(generalized: } \sigma = E\,\varepsilon\text{)}\]</div>
+<div class="eq">\[F = -kx\]\[\text{(generalized: } \sigma = E\,\varepsilon\text{)}\]</div>
 <p>where \(\sigma\) is stress, \(\varepsilon\) strain and \(E\) Young's modulus. For anisotropic materials, \(\sigma_{ij} = C_{ijkl}\,\varepsilon_{kl}\).</p>
 <h4>Why it is universal</h4>
-<p>Any smooth potential near a stable minimum is approximately quadratic: \(U(x) \approx U_0 + \tfrac12 U''(x_0)(x-x_0)^2\). Hence small oscillations are harmonic with \(\omega = \sqrt{k/m}\).</p>
+<p>Any smooth potential near a stable minimum is approximately quadratic:</p>
+<div class="eq">\[U(x) \approx U_0 + \tfrac12 U''(x_0)(x-x_0)^2\]</div>
+<p>Hence small oscillations are harmonic with \(\omega = \sqrt{k/m}\).</p>
 <h4>Applications</h4>
 <p>Vehicle suspensions, MEMS accelerometers, atomic force microscope cantilevers, seismometers, structural analysis (linear elasticity, finite element methods).</p></div>
   </div>
@@ -715,7 +721,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <div class="eq">\[I = \frac{P}{4\pi r^2}\]</div>
 <h4>例題</h4>
 <p>100 W 的點光源（假設全部變成輻射），2 m 處的強度：</p>
-<div class="eq">\[I = \frac{100}{4\pi \times 2^2} \approx 2.0\ \text{W/m}^2\]</div>
+<div class="eq">\[\begin{aligned}I &amp;= \frac{100}{4\pi \times 2^2} \\ &amp;\approx 2.0\ \text{W/m}^2\end{aligned}\]</div>
 <h4>分貝的變化</h4>
 <p>距離加倍，聲強變 \(\tfrac14\)，聲強級約下降 6 dB：\(\Delta L = 10\log_{10} 4 \approx 6\) dB。</p>
 <h4>應用</h4>
@@ -758,7 +764,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <p>電流通過電阻時，電能轉換為熱能，產生的熱量與電流平方、電阻和時間成正比。</p>
 <div class="eq">\[H = I^2 R\, t\]</div>
 <h4>電功率</h4>
-<div class="eq">\[P = IV = I^2R = \frac{V^2}{R}\]</div>
+<div class="eq">\[\begin{aligned}P &amp;= IV \\ &amp;= I^2R \\ &amp;= \frac{V^2}{R}\end{aligned}\]</div>
 <h4>例題</h4>
 <p>電熱水壺接 110 V，電流 5 A，使用 3 分鐘：</p>
 <ul>
@@ -773,15 +779,15 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 </ul>
 <h4>例題</h4>
 <p>1000 W 電熱水壺把 1 kg 的水從 20 °C 加熱到 100 °C（水的比熱 4186 J/kg·°C）：</p>
-<div class="eq">\[Q = mc\Delta T = 1 \times 4186 \times 80 \approx 3.35\times10^5\ \text{J}\]</div>
+<div class="eq">\[\begin{aligned}Q &amp;= mc\Delta T \\ &amp;= 1 \times 4186 \times 80 \\ &amp;\approx 3.35\times10^5\ \text{J}\end{aligned}\]</div>
 <p>不計熱損失，約需 \(335\) s，大約 5.6 分鐘。</p>
 <h4>為什麼要高壓輸電？</h4>
 <p>輸電線損失 \(P_{\text{損}} = I^2 R\)。輸送相同功率時，電壓提高 10 倍，電流降為 \(\tfrac1{10}\)，損失降為 \(\tfrac1{100}\)。</p>
 <h4>應用</h4>
 <p>保險絲、電熱毯、除霧線、電烙鐵。</p></div><div role="tabpanel" class="panel lv-u" id="p-J-u" aria-labelledby="t-J-u" lang="en" hidden><h4>Statement</h4>
-<div class="eq">\[P = I^2 R = \frac{V^2}{R}, \qquad Q = \int I^2 R\,dt\]</div>
+<div class="eq">\[\begin{aligned}P &amp;= I^2 R \\ &amp;= \frac{V^2}{R}\end{aligned}\]\[Q = \int I^2 R\,dt\]</div>
 <p>Microscopically, Joule heating arises from conduction electrons scattering off lattice vibrations and impurities. The local power density is</p>
-<div class="eq">\[p = \mathbf J\cdot\mathbf E = \sigma E^2\]</div>
+<div class="eq">\[\begin{aligned}p &amp;= \mathbf J\cdot\mathbf E \\ &amp;= \sigma E^2\end{aligned}\]</div>
 <h4>Applications</h4>
 <ul>
 <li>Fuses and circuit breakers, incandescent lamps, resistive heaters, rear-window defrosters.</li>
@@ -838,7 +844,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 </ul>
 <h4>應用</h4>
 <p>電路設計、惠斯同電橋、電網分析。</p></div><div role="tabpanel" class="panel lv-u" id="p-K-u" aria-labelledby="t-K-u" lang="en" hidden><h4>Statements</h4>
-<div class="eq">\[\text{KCL: } \sum_k I_k = 0 \ \text{(at a node)}, \qquad \text{KVL: } \sum_k V_k = 0 \ \text{(around a loop)}\]</div>
+<div class="eq">\[\text{KCL: } \sum_k I_k = 0 \ \text{(at a node)}\]\[\text{KVL: } \sum_k V_k = 0 \ \text{(around a loop)}\]</div>
 <p>KCL expresses charge conservation (\(\nabla\cdot\mathbf J = 0\) in steady state). KVL follows from \(\oint \mathbf E\cdot d\boldsymbol\ell = 0\) when no time-varying magnetic flux links the loop.</p>
 <h4>Methods</h4>
 <p>Nodal analysis yields the linear system \(\mathbf G\,\mathbf v = \mathbf i\); mesh analysis uses loop currents. Both underlie circuit simulators such as SPICE.</p>
@@ -935,15 +941,15 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 </ul>
 <h4>預言光是電磁波</h4>
 <p>馬克士威加上「變化的電場產生磁場」這一項後，算出電磁波的速度：</p>
-<div class="eq">\[c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} \approx 3.0\times10^8\ \text{m/s}\]</div>
+<div class="eq">\[\begin{aligned}c &amp;= \frac{1}{\sqrt{\mu_0\varepsilon_0}} \\ &amp;\approx 3.0\times10^8\ \text{m/s}\end{aligned}\]</div>
 <p>正好等於光速，於是推論光就是電磁波。1887 年赫茲用實驗證實。</p>
 <h4>應用</h4>
 <p>無線通訊、雷達、光纖、醫學影像。</p></div><div role="tabpanel" class="panel lv-u" id="p-M-u" aria-labelledby="t-M-u" lang="en" hidden><h4>The equations (SI, differential form)</h4>
-<div class="eq">\[\nabla\cdot\mathbf E = \frac{\rho}{\varepsilon_0} \qquad \nabla\cdot\mathbf B = 0\]</div>
-<div class="eq">\[\nabla\times\mathbf E = -\frac{\partial\mathbf B}{\partial t} \qquad \nabla\times\mathbf B = \mu_0\mathbf J + \mu_0\varepsilon_0\frac{\partial\mathbf E}{\partial t}\]</div>
+<div class="eq">\[\nabla\cdot\mathbf E = \frac{\rho}{\varepsilon_0}\]\[\nabla\cdot\mathbf B = 0\]</div>
+<div class="eq">\[\nabla\times\mathbf E = -\frac{\partial\mathbf B}{\partial t}\]\[\nabla\times\mathbf B = \mu_0\mathbf J + \mu_0\varepsilon_0\frac{\partial\mathbf E}{\partial t}\]</div>
 <h4>Electromagnetic waves</h4>
 <p>In vacuum they combine into the wave equation</p>
-<div class="eq">\[\nabla^2\mathbf E = \mu_0\varepsilon_0\,\frac{\partial^2\mathbf E}{\partial t^2}, \qquad c = \frac{1}{\sqrt{\mu_0\varepsilon_0}}\]</div>
+<div class="eq">\[\nabla^2\mathbf E = \mu_0\varepsilon_0\,\frac{\partial^2\mathbf E}{\partial t^2}\]\[c = \frac{1}{\sqrt{\mu_0\varepsilon_0}}\]</div>
 <p>Energy flux is carried by the Poynting vector \(\mathbf S = \mathbf E\times\mathbf B/\mu_0\).</p>
 <h4>Significance</h4>
 <p>The equations are Lorentz-invariant, not Galilean-invariant, which led Einstein to special relativity. Applications span antennas, waveguides, optics, radar and all wireless communication.</p></div>
@@ -980,7 +986,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <h4>重量</h4>
 <p>重量 = 質量 × 重力加速度，\(W = mg\)。</p></div><div role="tabpanel" class="panel lv-h" id="p-N-h" aria-labelledby="t-N-h" hidden><h4>第二定律的完整形式</h4>
 <p>合力是向量和：\(\vec F_{\text{合}} = m\vec a\)。也可以寫成動量形式：</p>
-<div class="eq">\[F = \frac{\Delta p}{\Delta t}, \qquad p = mv\]</div>
+<div class="eq">\[F = \frac{\Delta p}{\Delta t}\]\[p = mv\]</div>
 <h4>例題</h4>
 <p>1000 kg 的汽車在 4 s 內從靜止加速到 20 m/s：\(a = 5\) m/s²，所需合力 \(F = 5000\) N。</p>
 <h4>摩擦力</h4>
@@ -996,7 +1002,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <p>3. \(\mathbf F_{AB} = -\mathbf F_{BA}\).</p>
 <p>Law 3 together with law 2 implies conservation of linear momentum for isolated systems.</p>
 <h4>Key results</h4>
-<div class="eq">\[\mathbf J = \int \mathbf F\,dt = \Delta\mathbf p, \qquad \Delta v = v_e \ln\frac{m_0}{m_f}\ \text{(Tsiolkovsky)}\]</div>
+<div class="eq">\[\begin{aligned}\mathbf J &amp;= \int \mathbf F\,dt \\ &amp;= \Delta\mathbf p\end{aligned}\]\[\Delta v = v_e \ln\frac{m_0}{m_f}\ \text{(Tsiolkovsky)}\]</div>
 <h4>Applications and limits</h4>
 <p>Crash-safety engineering, rocketry, orbital mechanics, statics (\(\sum\mathbf F = 0,\ \sum\boldsymbol\tau = 0\)). Newtonian mechanics fails near the speed of light (relativity) and at atomic scales (quantum mechanics).</p></div>
   </div>
@@ -1035,7 +1041,8 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <p class="note warn"><b>注意</b>燈泡的鎢絲發熱後電阻會變大，所以燈泡的電壓–電流圖不是直線。</p></div><div role="tabpanel" class="panel lv-h" id="p-O-h" aria-labelledby="t-O-h" hidden><h4>電阻定律</h4>
 <p>導線的電阻與長度成正比、與截面積成反比：</p>
 <div class="eq">\[R = \rho\,\frac{L}{A}\]</div>
-<p>例題：銅的電阻率 \(1.7\times10^{-8}\) Ω·m，長 100 m、截面積 1 mm² 的銅線，\(R = 1.7\times10^{-8}\times\dfrac{100}{1\times10^{-6}} = 1.7\) Ω。</p>
+<p>例題：銅的電阻率 \(1.7\times10^{-8}\) Ω·m，長 100 m、截面積 1 mm² 的銅線：</p>
+<div class="eq">\[\begin{aligned}R &amp;= 1.7\times10^{-8}\times\frac{100}{1\times10^{-6}} \\ &amp;= 1.7\ \Omega\end{aligned}\]</div>
 <h4>電池的內電阻</h4>
 <div class="eq">\[V = \varepsilon - Ir\]</div>
 <p>電流越大，電池端電壓越小，所以手機玩重度遊戲時電量下降特別快。</p>
@@ -1044,9 +1051,9 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <li>冷氣、電熱水器要用比較粗的電線。</li>
 <li>分壓電路、可變電阻、溫度感測器（熱敏電阻）。</li>
 </ul></div><div role="tabpanel" class="panel lv-u" id="p-O-u" aria-labelledby="t-O-u" lang="en" hidden><h4>Statement</h4>
-<div class="eq">\[V = IR \qquad\text{(microscopic form: } \mathbf J = \sigma\mathbf E\text{)}\]</div>
+<div class="eq">\[V = IR\]\[\text{(microscopic form: } \mathbf J = \sigma\mathbf E\text{)}\]</div>
 <p>Ohm's law is an empirical constitutive relation, not a fundamental law. The Drude model gives</p>
-<div class="eq">\[\sigma = \frac{n e^2 \tau}{m}, \qquad R = \frac{\rho L}{A}, \quad \rho(T) \approx \rho_0\,[1 + \alpha (T - T_0)]\]</div>
+<div class="eq">\[\sigma = \frac{n e^2 \tau}{m}\]\[R = \frac{\rho L}{A}\]\[\rho(T) \approx \rho_0\,[1 + \alpha (T - T_0)]\]</div>
 <h4>Non-ohmic devices</h4>
 <p>Diodes, LEDs, transistors, gas discharges and superconductors (\(R = 0\) below \(T_c\)) do not obey a linear \(V\)–\(I\) relation.</p>
 <h4>Applications</h4>
@@ -1092,7 +1099,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <h4>應用</h4>
 <p>液壓煞車、液壓升降機、飛機起落架、工業壓床。</p></div><div role="tabpanel" class="panel lv-u" id="p-P-u" aria-labelledby="t-P-u" lang="en" hidden><h4>Statement</h4>
 <p>In a confined, incompressible fluid at rest, a change in pressure applied at any point is transmitted undiminished to every point of the fluid and to the container walls.</p>
-<div class="eq">\[\Delta p_1 = \Delta p_2 \;\Rightarrow\; \frac{F_1}{A_1} = \frac{F_2}{A_2}, \qquad p = p_0 + \rho g h\]</div>
+<div class="eq">\[\begin{aligned}\Delta p_1 &amp;= \Delta p_2 \; \\ &amp;\Rightarrow \; \frac{F_1}{A_1} \\ &amp;= \frac{F_2}{A_2}\end{aligned}\]\[p = p_0 + \rho g h\]</div>
 <h4>Mechanical advantage</h4>
 <p>\(\text{MA} = A_2/A_1\). By volume conservation the displacement ratio is inverse, so work is conserved (ideal case, neglecting friction and fluid compressibility).</p>
 <h4>Applications</h4>
@@ -1122,10 +1129,10 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <h4>電子雲</h4>
 <p>因此電子不是在固定軌道上繞原子核轉的小球，而是用「電子雲」表示它出現在各處的機率。</p>
 <p class="note warn"><b>注意</b>這個效應只在原子大小的尺度才明顯。日常物體（籃球、汽車）的不確定量小到完全看不出來。</p></div><div role="tabpanel" class="panel lv-h" id="p-Q-h" aria-labelledby="t-Q-h" hidden><h4>公式</h4>
-<div class="eq">\[\Delta x \cdot \Delta p \ge \frac{\hbar}{2}, \qquad \hbar = \frac{h}{2\pi} \approx 1.05\times10^{-34}\ \text{J·s}\]</div>
+<div class="eq">\[\Delta x \cdot \Delta p \ge \frac{\hbar}{2}\]\[\begin{aligned}\hbar &amp;= \frac{h}{2\pi} \\ &amp;\approx 1.05\times10^{-34}\ \text{J·s}\end{aligned}\]</div>
 <h4>例題：電子 vs. 棒球</h4>
 <p>電子侷限在原子大小 \(\Delta x = 0.1\) nm：</p>
-<div class="eq">\[\Delta p \ge \frac{1.05\times10^{-34}}{2\times10^{-10}} \approx 5.3\times10^{-25}\ \text{kg·m/s}\]</div>
+<div class="eq">\[\begin{aligned}\Delta p &amp;\ge \frac{1.05\times10^{-34}}{2\times10^{-10}} \\ &amp;\approx 5.3\times10^{-25}\ \text{kg·m/s}\end{aligned}\]</div>
 <p>速度不確定量 \(\Delta v = \Delta p/m \approx 5.8\times10^{5}\) m/s，非常大！</p>
 <p>若是 0.1 kg 的棒球侷限在 1 μm 內，\(\Delta v\) 只有約 \(5\times10^{-28}\) m/s，可以忽略。</p>
 <h4>能量–時間關係</h4>
@@ -1172,12 +1179,14 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <h4>質能互換</h4>
 <div class="eq">\[E = mc^2\]</div>
 <p>很少的質量就能轉換成巨大的能量。</p>
-<p>例：1 g 的質量完全轉換，\(E = 0.001 \times (3\times10^8)^2 = 9\times10^{13}\) J，大約是一座 2 GW 大型電廠運轉半天的發電量。</p>
+<p>例：1 g 的質量完全轉換：</p>
+<div class="eq">\[\begin{aligned}E &amp;= 0.001 \times (3\times10^8)^2 \\ &amp;= 9\times10^{13}\ \text{J}\end{aligned}\]</div>
+<p>大約是一座 2 GW 大型電廠運轉半天的發電量。</p>
 <h4>廣義相對論（1915）</h4>
 <p>重力是質量使時空彎曲的結果。光經過大質量天體附近也會被彎折。</p>
 <h4>應用</h4>
 <p>核能發電、太陽發光（核融合）都是質量轉換成能量。</p></div><div role="tabpanel" class="panel lv-h" id="p-R-h" aria-labelledby="t-R-h" hidden><h4>時間膨脹與長度收縮</h4>
-<div class="eq">\[\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}, \qquad \Delta t = \gamma\,\Delta t_0, \qquad L = \frac{L_0}{\gamma}\]</div>
+<div class="eq">\[\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}\]\[\Delta t = \gamma\,\Delta t_0\]\[L = \frac{L_0}{\gamma}\]</div>
 <h4>例題</h4>
 <p>太空船速度 \(0.6c\)，\(\gamma = \dfrac{1}{\sqrt{1 - 0.36}} = 1.25\)。船上的人過了 4 年，地球上過了 5 年。</p>
 <h4>實驗證據</h4>
@@ -1189,7 +1198,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <li>合計每天快約 38 μs，乘上光速，誤差約 11 km</li>
 </ul></div><div role="tabpanel" class="panel lv-u" id="p-R-u" aria-labelledby="t-R-u" lang="en" hidden><h4>Special relativity</h4>
 <p>Postulates: the laws of physics are identical in all inertial frames, and the speed of light \(c\) is invariant. Consequences follow from the Lorentz transformation:</p>
-<div class="eq">\[\gamma = \frac{1}{\sqrt{1-\beta^2}}, \qquad E^2 = (pc)^2 + (mc^2)^2, \qquad E_0 = mc^2\]</div>
+<div class="eq">\[\gamma = \frac{1}{\sqrt{1-\beta^2}}\]\[E^2 = (pc)^2 + (mc^2)^2\]\[E_0 = mc^2\]</div>
 <h4>General relativity</h4>
 <p>Gravity is spacetime curvature, governed by the Einstein field equations</p>
 <div class="eq">\[G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}\,T_{\mu\nu}\]</div>
@@ -1241,22 +1250,28 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <p>例：溫度從 300 K 升到 600 K（變 2 倍），輻射變成 \(2^4 = 16\) 倍。</p>
 <h4>應用</h4>
 <p>保溫瓶內壁鍍銀，減少熱輻射；夏天穿淺色衣服比較涼。</p></div><div role="tabpanel" class="panel lv-h" id="p-S-h" aria-labelledby="t-S-h" hidden><h4>公式</h4>
-<div class="eq">\[P = e\,\sigma A T^4, \qquad \sigma = 5.67\times10^{-8}\ \text{W/(m}^2\text{·K}^4)\]</div>
+<div class="eq">\[P = e\,\sigma A T^4\]\[\sigma = 5.67\times10^{-8}\ \text{W/(m}^2\text{·K}^4)\]</div>
 <p>\(e\) 是放射率（0 到 1），理想黑體 \(e = 1\)。物體也會吸收環境的輻射，淨輻射功率：</p>
 <div class="eq">\[P_{\text{淨}} = e\sigma A\,(T^4 - T_{\text{環境}}^4)\]</div>
 <h4>例題：人體散熱</h4>
 <p>皮膚表面積 1.8 m²，皮膚溫度 307 K（34 °C），室溫 293 K（20 °C），\(e \approx 0.97\)：</p>
-<div class="eq">\[P_{\text{淨}} \approx 0.97 \times 5.67\times10^{-8} \times 1.8 \times (307^4 - 293^4) \approx 150\ \text{W}\]</div>
+<p>代入 \(e = 0.97\)、\(A = 1.8\) m²，先算 \(e\sigma A\)：</p>
+<div class="eq">\[e\sigma A \approx 9.9\times10^{-8}\]</div>
+<div class="eq">\[\begin{aligned}T^4 - T_{\text{環境}}^4 &amp;= 307^4 - 293^4 \\ &amp;\approx 1.51\times10^{9}\end{aligned}\]</div>
+<div class="eq">\[\begin{aligned}P &amp;\approx 9.9\times10^{-8} \times 1.51\times10^{9} \\ &amp;\approx 150\ \text{W}\end{aligned}\]</div>
 <p>所以在 20 °C 的房間裡沒穿衣服會覺得冷。</p>
 <h4>應用</h4>
 <p>估算太陽表面溫度、地球能量平衡與溫室效應、紅外線熱像儀。</p></div><div role="tabpanel" class="panel lv-u" id="p-S-u" aria-labelledby="t-S-u" lang="en" hidden><h4>Statement</h4>
 <p>The total radiant exitance of a blackbody is</p>
-<div class="eq">\[j^\star = \sigma T^4, \qquad \sigma = \frac{2\pi^5 k_B^4}{15\,c^2 h^3} \approx 5.670\times10^{-8}\ \text{W m}^{-2}\text{K}^{-4}\]</div>
+<div class="eq">\[j^\star = \sigma T^4\]\[\begin{aligned}\sigma &amp;= \frac{2\pi^5 k_B^4}{15\,c^2 h^3} \\ &amp;\approx 5.670\times10^{-8}\ \text{W m}^{-2}\text{K}^{-4}\end{aligned}\]</div>
 <p>obtained by integrating Planck's law over all wavelengths and the hemisphere. For a gray body, \(j = \varepsilon\sigma T^4\).</p>
 <h4>Applications</h4>
 <ul>
 <li>Stellar luminosity: \(L = 4\pi R^2 \sigma T_{\text{eff}}^4\).</li>
-<li>Planetary equilibrium temperature: \(T_e = \left[\dfrac{S(1-\alpha)}{4\sigma}\right]^{1/4} \approx 255\ \text{K}\) for Earth, about 33 K below the observed mean, which is the greenhouse effect.</li>
+<li>Planetary equilibrium temperature: about 255 K for Earth, roughly 33 K below the observed mean, which is the greenhouse effect.</li>
+</ul>
+<div class="eq">\[\begin{aligned}T_e &amp;= \left[\frac{S(1-\alpha)}{4\sigma}\right]^{1/4} \\ &amp;\approx 255\ \text{K}\end{aligned}\]</div>
+<ul>
 <li>Spacecraft thermal control, infrared thermography, pyrometry.</li>
 </ul></div>
   </div>
@@ -1349,18 +1364,19 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <li>重量：地球對物體的引力（kgw 或 N）。</li>
 </ul>
 <p>例：月球表面重力約是地球的 \(\tfrac16\)。60 kg 的人在月球上，質量仍是 60 kg，重量只剩約 10 kgw。</p></div><div role="tabpanel" class="panel lv-h" id="p-U-h" aria-labelledby="t-U-h" hidden><h4>重力常數</h4>
-<div class="eq">\[G = 6.67\times10^{-11}\ \text{N·m}^2/\text{kg}^2, \qquad g = \frac{GM}{R^2}\]</div>
+<div class="eq">\[G = 6.67\times10^{-11}\ \text{N·m}^2/\text{kg}^2\]\[g = \frac{GM}{R^2}\]</div>
 <p>離地心距離變 2 倍（離地高度等於地球半徑），\(g\) 變成 \(\tfrac14\)。</p>
 <h4>衛星的圓周運動</h4>
 <p>引力提供向心力：\(\dfrac{GMm}{r^2} = \dfrac{mv^2}{r}\) → \(v = \sqrt{\dfrac{GM}{r}}\)</p>
-<p>例題：貼近地表的衛星 \(v = \sqrt{gR} = \sqrt{9.8 \times 6.4\times10^6} \approx 7.9\) km/s（第一宇宙速度）。</p>
+<p>例題：貼近地表的衛星（第一宇宙速度）：</p>
+<div class="eq">\[\begin{aligned}v &amp;= \sqrt{gR} \\ &amp;= \sqrt{9.8 \times 6.4\times10^6} \\ &amp;\approx 7.9\ \text{km/s}\end{aligned}\]</div>
 <h4>克卜勒第三定律</h4>
 <div class="eq">\[T^2 \propto r^3\]</div>
 <h4>應用</h4>
 <p>人造衛星、同步衛星（約 36000 km 高）、卡文迪許扭秤實驗「秤出」地球質量。</p></div><div role="tabpanel" class="panel lv-u" id="p-U-u" aria-labelledby="t-U-u" lang="en" hidden><h4>Statement</h4>
-<div class="eq">\[\mathbf F_{12} = -G\,\frac{m_1 m_2}{r^2}\,\hat{\mathbf r}_{12}, \qquad \Phi(r) = -\frac{GM}{r}\]</div>
+<div class="eq">\[\mathbf F_{12} = -G\,\frac{m_1 m_2}{r^2}\,\hat{\mathbf r}_{12}\]\[\Phi(r) = -\frac{GM}{r}\]</div>
 <h4>Key results</h4>
-<div class="eq">\[v_{\text{esc}} = \sqrt{\frac{2GM}{r}} \approx 11.2\ \text{km/s (Earth)}, \qquad T^2 = \frac{4\pi^2}{GM}\,a^3\]</div>
+<div class="eq">\[\begin{aligned}v_{\text{esc}} &amp;= \sqrt{\frac{2GM}{r}} \\ &amp;\approx 11.2\ \text{km/s (Earth)}\end{aligned}\]\[T^2 = \frac{4\pi^2}{GM}\,a^3\]</div>
 <p>Field form: \(\nabla\cdot\mathbf g = -4\pi G\rho\) (Poisson's equation \(\nabla^2\Phi = 4\pi G\rho\)).</p>
 <h4>Limits</h4>
 <p>Superseded by general relativity in strong fields or at high precision (e.g. Mercury's 43″/century perihelion advance).</p>
@@ -1394,8 +1410,9 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <p>穩定、互相束縛的系統（行星繞太陽、星團、星系），長時間平均下來，動能和位能之間有固定的關係。</p>
 <h4>天文應用</h4>
 <p>量出星星的速度，就能推算星團的總質量。1933 年茲威基用這個方法研究后髮座星系團，發現所需質量遠大於看得見的星星，這是暗物質最早的證據之一。</p></div><div role="tabpanel" class="panel lv-h" id="p-V-h" aria-labelledby="t-V-h" hidden><h4>重力系統的維里定理</h4>
-<div class="eq">\[2\langle K\rangle + \langle U\rangle = 0 \;\Rightarrow\; \langle K\rangle = -\tfrac12\langle U\rangle\]</div>
-<p>總能量 \(E = K + U = \tfrac12\langle U\rangle = -\langle K\rangle &lt; 0\)，代表系統被束縛住。</p>
+<div class="eq">\[\begin{aligned}2\langle K\rangle + \langle U\rangle &amp;= 0 \; \\ &amp;\Rightarrow \; \langle K\rangle \\ &amp;= -\tfrac12\langle U\rangle\end{aligned}\]</div>
+<p>總能量為負，代表系統被束縛住：</p>
+<div class="eq">\[\begin{aligned}E &amp;= K + U \\ &amp;= \tfrac12\langle U\rangle \\ &amp;= -\langle K\rangle \\ &amp;&lt; 0\end{aligned}\]</div>
 <h4>驗證：圓軌道</h4>
 <p>\(K = \tfrac12 mv^2 = \dfrac{GMm}{2r}\)，\(U = -\dfrac{GMm}{r}\)，所以 \(2K + U = 0\) ✓</p>
 <h4>有趣的推論：負熱容量</h4>
@@ -1440,10 +1457,13 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <div class="eq">\[\lambda_{\max} \times T \approx 2.9\times10^{-3}\ \text{m·K}\]</div>
 <h4>例題</h4>
 <ul>
-<li>太陽表面約 5800 K：\(\lambda_{\max} \approx \dfrac{2.9\times10^{-3}}{5800} = 5\times10^{-7}\) m = 500 nm，在可見光範圍。</li>
+<li>太陽表面約 5800 K：最強波長約 500 nm，在可見光範圍。</li>
+</ul>
+<div class="eq">\[\begin{aligned}\lambda_{\max} &amp;\approx \frac{2.9\times10^{-3}}{5800} \\ &amp;= 5\times10^{-7}\ \text{m}\end{aligned}\]</div>
+<ul>
 <li>人體約 310 K：\(\lambda_{\max} \approx 9.4\) μm，是紅外線，所以熱像儀看得到人。</li>
 </ul></div><div role="tabpanel" class="panel lv-h" id="p-W-h" aria-labelledby="t-W-h" hidden><h4>公式</h4>
-<div class="eq">\[\lambda_{\max} T = b, \qquad b = 2.898\times10^{-3}\ \text{m·K}\]</div>
+<div class="eq">\[\lambda_{\max} T = b\]\[b = 2.898\times10^{-3}\ \text{m·K}\]</div>
 <h4>例題：獵戶座的兩顆亮星</h4>
 <ul>
 <li>參宿四（紅超巨星）約 3500 K：\(\lambda_{\max} \approx 828\) nm，偏紅外。</li>
@@ -1456,10 +1476,11 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <li>紅外線測溫槍、高溫爐的光學溫度計。</li>
 <li>宇宙微波背景輻射 2.725 K，\(\lambda_{\max} \approx 1.06\) mm，是大霹靂的證據。</li>
 </ul></div><div role="tabpanel" class="panel lv-u" id="p-W-u" aria-labelledby="t-W-u" lang="en" hidden><h4>Statement</h4>
-<div class="eq">\[\lambda_{\max} = \frac{b}{T}, \qquad b = \frac{hc}{x\,k_B} \approx 2.898\times10^{-3}\ \text{m·K}\]</div>
+<div class="eq">\[\lambda_{\max} = \frac{b}{T}\]\[\begin{aligned}b &amp;= \frac{hc}{x\,k_B} \\ &amp;\approx 2.898\times10^{-3}\ \text{m·K}\end{aligned}\]</div>
 <p>Here \(x \approx 4.965\) solves \(x = 5(1 - e^{-x})\), obtained by maximizing Planck's spectral radiance</p>
 <div class="eq">\[B_\lambda(T) = \frac{2hc^2}{\lambda^5}\,\frac{1}{e^{hc/\lambda k_B T} - 1}\]</div>
-<p>The peak in frequency, \(\nu_{\max} \approx 5.879\times10^{10}\ \text{Hz/K}\times T\), does not correspond to \(c/\lambda_{\max}\), because the peak depends on the spectral variable.</p>
+<p>The peak in frequency does not correspond to \(c/\lambda_{\max}\), because the peak depends on the spectral variable:</p>
+<div class="eq">\[\nu_{\max} \approx 5.879\times10^{10}\ \text{Hz/K}\times T\]</div>
 <h4>Applications</h4>
 <p>Optical pyrometry, stellar spectral classification (O B A F G K M), the CMB spectrum, color temperature of lighting and displays.</p></div>
   </div>
@@ -1498,7 +1519,7 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <p>推導：下一層多走的路程 = \(2d\sin\theta\)。</p>
 <h4>例題</h4>
 <p>用銅靶 X 射線 \(\lambda = 0.154\) nm 照射食鹽晶體，第一階亮點出現在 \(\theta = 15.9°\)：</p>
-<div class="eq">\[d = \frac{\lambda}{2\sin\theta} = \frac{0.154}{2\times0.274} \approx 0.281\ \text{nm}\]</div>
+<div class="eq">\[\begin{aligned}d &amp;= \frac{\lambda}{2\sin\theta} \\ &amp;= \frac{0.154}{2\times0.274} \\ &amp;\approx 0.281\ \text{nm}\end{aligned}\]</div>
 <p>和氯化鈉晶面間距 0.282 nm 相符。</p>
 <h4>應用</h4>
 <p>晶體結構分析、藥物與蛋白質結構、材料成分鑑定、半導體晶圓品質檢測。布拉格父子因此獲得 1915 年諾貝爾物理獎。</p></div><div role="tabpanel" class="panel lv-u" id="p-X-u" aria-labelledby="t-X-u" lang="en" hidden><h4>Statement</h4>
@@ -1541,19 +1562,19 @@ footer{padding-block:20px 48px;color:var(--muted);font-size:13px;border-top:1px 
 <p>1801 年楊格做了這個實驗，證明光具有波動性。在這之前，很多人認為光是牛頓所說的微粒。</p>
 <h4>條紋與波長</h4>
 <p>波長越長，條紋間距越寬：紅光的條紋比藍光的寬。</p></div><div role="tabpanel" class="panel lv-h" id="p-Y-h" aria-labelledby="t-Y-h" hidden><h4>公式</h4>
-<div class="eq">\[\text{亮紋：} d\sin\theta = m\lambda \qquad \text{暗紋：} d\sin\theta = (m + \tfrac12)\lambda\]</div>
+<div class="eq">\[\text{亮紋：} d\sin\theta = m\lambda\]\[\text{暗紋：} d\sin\theta = (m + \tfrac12)\lambda\]</div>
 <p>小角度時，相鄰亮紋間距：</p>
 <div class="eq">\[\Delta y = \frac{L\lambda}{d}\]</div>
 <p>（\(d\)：雙縫間距，\(L\)：縫到屏幕距離）</p>
 <h4>例題</h4>
 <p>\(\lambda = 600\) nm，\(d = 0.2\) mm，\(L = 2\) m：</p>
-<div class="eq">\[\Delta y = \frac{2 \times 6\times10^{-7}}{2\times10^{-4}} = 6\times10^{-3}\ \text{m} = 6\ \text{mm}\]</div>
+<div class="eq">\[\begin{aligned}\Delta y &amp;= \frac{2 \times 6\times10^{-7}}{2\times10^{-4}} \\ &amp;= 6\times10^{-3}\ \text{m} \\ &amp;= 6\ \text{mm}\end{aligned}\]</div>
 <h4>量子版本</h4>
 <p>電子或光子一個一個發射，螢幕上一點一點累積，最後仍然出現干涉條紋：每個粒子都像同時通過兩條縫。</p>
 <h4>應用</h4>
 <p>測量光的波長、干涉儀、眼鏡的抗反射鍍膜。</p></div><div role="tabpanel" class="panel lv-u" id="p-Y-u" aria-labelledby="t-Y-u" lang="en" hidden><h4>Statement</h4>
 <p>Bright fringes at \(d\sin\theta = m\lambda\). The intensity, including the single-slit envelope for slit width \(a\), is</p>
-<div class="eq">\[I(\theta) = I_0\cos^2\!\left(\frac{\pi d\sin\theta}{\lambda}\right)\operatorname{sinc}^2\!\left(\frac{\pi a\sin\theta}{\lambda}\right), \qquad \Delta y = \frac{\lambda L}{d}\]</div>
+<div class="eq">\[\begin{aligned} I(\theta) &amp;= I_0\cos^2\!\left(\frac{\pi d\sin\theta}{\lambda}\right) \\ &amp;\;\times \operatorname{sinc}^2\!\left(\frac{\pi a\sin\theta}{\lambda}\right) \end{aligned}\]\[\Delta y = \frac{\lambda L}{d}\]</div>
 <h4>Quantum interpretation</h4>
 <p>Single photons or electrons build up the same pattern one detection at a time (Tonomura et al., 1989). Acquiring which-path information destroys the interference, illustrating complementarity. The amplitude for each path adds before squaring: \(P = |\psi_1 + \psi_2|^2\).</p>
 <h4>Applications</h4>
